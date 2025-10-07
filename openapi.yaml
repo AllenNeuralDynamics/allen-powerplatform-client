@@ -130,7 +130,6 @@ definitions:
     properties:
       projectName:
         type: string
-        example: "CCF template"
         
   TableRequest:
     type: object
@@ -139,4 +138,3 @@ definitions:
     properties:
       tableName:
         type: string
-        example: "cr138_projects"

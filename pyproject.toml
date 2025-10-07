@@ -1,94 +1,100 @@
-[project]
-name = "openapi_client"
-version = "1.0.0"
-description = "PowerAutomate Dataverse API"
-authors = [
-  {name = "OpenAPI Generator Community",email = "team@openapitools.org"},
-]
-readme = "README.md"
-keywords = ["OpenAPI", "OpenAPI-Generator", "PowerAutomate Dataverse API"]
-requires-python = ">=3.9"
-
-dependencies = [
-  "urllib3 (>=2.1.0,<3.0.0)",
-  "python-dateutil (>=2.8.2)",
-  "pydantic (>=2)",
-  "typing-extensions (>=4.7.1)",
-]
-
-[project.urls]
-Repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
-
-[tool.poetry]
-requires-poetry = ">=2.0"
-
-[tool.poetry.group.dev.dependencies]
-pytest = ">= 7.2.1"
-pytest-cov = ">= 2.8.1"
-tox = ">= 3.9.0"
-flake8 = ">= 4.0.0"
-types-python-dateutil = ">= 2.8.19.14"
-mypy = ">= 1.5"
-
-
 [build-system]
-requires = ["setuptools"]
+requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
-[tool.pylint.'MESSAGES CONTROL']
-extension-pkg-whitelist = "pydantic"
-
-[tool.mypy]
-files = [
-  "openapi_client",
-  #"test",  # auto-generated tests
-  "tests", # hand-written tests
+[project]
+name = "aind-dataverse-service"
+description = "Package to serve data from Dataverse."
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Allen Institute for Neural Dynamics"}
 ]
-# TODO: enable "strict" once all these individual checks are passing
-# strict = true
-
-# List from: https://mypy.readthedocs.io/en/stable/existing_code.html#introduce-stricter-options
-warn_unused_configs = true
-warn_redundant_casts = true
-warn_unused_ignores = true
-
-## Getting these passing should be easy
-strict_equality = true
-extra_checks = true
-
-## Strongly recommend enabling this one as soon as you can
-check_untyped_defs = true
-
-## These shouldn't be too much additional work, but may be tricky to
-## get passing if you use a lot of untyped libraries
-disallow_subclassing_any = true
-disallow_untyped_decorators = true
-disallow_any_generics = true
-
-### These next few are various gradations of forcing use of type annotations
-#disallow_untyped_calls = true
-#disallow_incomplete_defs = true
-#disallow_untyped_defs = true
-#
-### This one isn't too hard to get passing, but return on investment is lower
-#no_implicit_reexport = true
-#
-### This one can be tricky to get passing if you use a lot of untyped libraries
-#warn_return_any = true
-
-[[tool.mypy.overrides]]
-module = [
-  "openapi_client.configuration",
+classifiers = [
+    "Programming Language :: Python :: 3"
 ]
-warn_unused_ignores = true
-strict_equality = true
-extra_checks = true
-check_untyped_defs = true
-disallow_subclassing_any = true
-disallow_untyped_decorators = true
-disallow_any_generics = true
-disallow_untyped_calls = true
-disallow_incomplete_defs = true
-disallow_untyped_defs = true
-no_implicit_reexport = true
-warn_return_any = true
+readme = "README.md"
+dynamic = ["version"]
+
+dependencies = [
+   'openapi-generator-cli'
+]
+
+[project.optional-dependencies]
+dev = [
+    'black',
+    'coverage',
+    'flake8',
+    'interrogate',
+    'isort',
+    'Sphinx',
+    'furo',
+    'pytest',
+    'pytest-env',
+    'pytest-mock',
+    'pytest_asyncio',
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.dynamic]
+version = {attr = "aind_sharepoint_service_server.__version__"}
+
+[tool.black]
+line-length = 79
+target_version = ['py310']
+exclude = '''
+
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | build
+    | dist
+  )/
+  | .gitignore
+)
+'''
+
+[tool.coverage.run]
+omit = ["*__init__*"]
+source = ["aind_sharepoint_service_server", "tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "if __name__ == .__main__.:",
+    "^from .* import .*",
+    "^import .*",
+    "pragma: no cover"
+]
+fail_under = 100
+
+[tool.isort]
+line_length = 79
+profile = "black"
+
+[tool.interrogate]
+exclude = ["setup.py", "docs", "build"]
+fail-under = 100
+
+[tool.pytest.ini_options]
+asyncio_mode="auto"
+asyncio_default_fixture_loop_scope="function"
+env = [
+    "DATAVERSE_HOST=host.environment.api.powerplatform.com",
+    "DATAVERSE_API_VERSION=2024-10-01",
+    "DATAVERSE_SP=/triggers/manual/run",
+    "DATAVERSE_SV=1.0",
+    "DATAVERSE_WORKFLOW_PROJECT_PATH=/powerautomate/path",
+    "DATAVERSE_WORKFLOW_TABLE_PATH=/powerautomate/path",
+    "DATAVERSE_WORKFLOW_TABLES_PATH=/powerautomate/path",
+    "DATAVERSE_SIG_PROJECT_BY_NAME=example123",
+    "DATAVERSE_SIG_TABLE_BY_NAME=example123",
+    "DATAVERSE_SIG_ALL_TABLES=example123"
+]
