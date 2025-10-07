@@ -1,0 +1,142 @@
+swagger: '2.0'
+info:
+  title: PowerAutomate Dataverse API
+  description: REST API client to trigger PowerAutomate flows for Dataverse operations
+  version: 1.0.0
+host: ${DATAVERSE_HOST}
+basePath: /
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+
+paths:
+  ${DATAVERSE_WORKFLOW_PROJECT_PATH}:
+    post:
+      summary: Fetch project data by project name
+      operationId: fetchProjectByName
+      parameters:
+        - in: query
+          name: api-version
+          required: false
+          type: string
+          default: '2024-10-01'
+        - in: query
+          name: sp
+          required: false
+          type: string
+          default: 'triggers/manual/run'
+        - in: query
+          name: sv
+          required: false
+          type: string
+          default: '1.0'
+        - in: query
+          name: sig
+          required: true
+          type: string
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/ProjectRequest'
+      responses:
+        '200':
+          description: Array of projects
+          schema:
+            type: array
+            items:
+              type: object
+              additionalProperties: true
+            
+  ${DATAVERSE_WORKFLOW_TABLE_PATH}:
+    post:
+      summary: Fetch table data by table name
+      operationId: fetchTableByName
+      parameters:
+        - in: query
+          name: api-version
+          required: false
+          type: string
+          default: '2024-10-01'
+        - in: query
+          name: sp
+          required: false
+          type: string
+          default: 'triggers/manual/run'
+        - in: query
+          name: sv
+          required: false
+          type: string
+          default: '1.0'
+        - in: query
+          name: sig
+          required: true
+          type: string
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/TableRequest'
+      responses:
+        '200':
+          description: Array of table records
+          schema:
+            type: array
+            items:
+              type: object
+              additionalProperties: true
+            
+  ${DATAVERSE_WORKFLOW_TABLES_PATH}:
+    post:
+      summary: Fetch table names in environment
+      operationId: fetchTableNames
+      parameters:
+        - in: query
+          name: api-version
+          required: false
+          type: string
+          default: '2024-10-01'
+        - in: query
+          name: sp
+          required: false
+          type: string
+          default: 'triggers/manual/run'
+        - in: query
+          name: sv
+          required: false
+          type: string
+          default: '1.0'
+        - in: query
+          name: sig
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Array of table definitions
+          schema:
+            type: array
+            items:
+              type: object
+              additionalProperties: true
+
+definitions:
+  ProjectRequest:
+    type: object
+    required:
+      - projectName
+    properties:
+      projectName:
+        type: string
+        example: "CCF template"
+        
+  TableRequest:
+    type: object
+    required:
+      - tableName
+    properties:
+      tableName:
+        type: string
+        example: "cr138_projects"
