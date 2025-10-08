@@ -4,7 +4,6 @@ info:
   description: REST API client to trigger PowerAutomate flows for Dataverse operations
   version: 1.0.0
 host: ${DATAVERSE_HOST}
-basePath: /
 schemes:
   - https
 consumes:
@@ -13,11 +12,16 @@ produces:
   - application/json
 
 paths:
-  ${DATAVERSE_WORKFLOW_PROJECT_PATH}:
+  /powerautomate/automations/direct/workflows/{projectWorkflowId}/triggers/manual/paths/invoke:
     post:
       summary: Fetch project data by project name
       operationId: fetchProjectByName
       parameters:
+        - in: path
+          name: projectWorkflowId
+          required: true
+          type: string
+          description: The PowerAutomate workflow ID
         - in: query
           name: api-version
           required: false
@@ -50,12 +54,17 @@ paths:
             items:
               type: object
               additionalProperties: true
-            
-  ${DATAVERSE_WORKFLOW_TABLE_PATH}:
+
+  /powerautomate/automations/direct/workflows/{tableWorkflowId}/triggers/manual/paths/invoke:
     post:
       summary: Fetch table data by table name
       operationId: fetchTableByName
       parameters:
+        - in: path
+          name: tableWorkflowId
+          required: true
+          type: string
+          description: The PowerAutomate workflow ID for table operations
         - in: query
           name: api-version
           required: false
@@ -88,12 +97,17 @@ paths:
             items:
               type: object
               additionalProperties: true
-            
-  ${DATAVERSE_WORKFLOW_TABLES_PATH}:
+
+  /powerautomate/automations/direct/workflows/{tablesWorkflowId}/triggers/manual/paths/invoke:
     post:
       summary: Fetch table names in environment
       operationId: fetchTableNames
       parameters:
+        - in: path
+          name: tablesWorkflowId
+          required: true
+          type: string
+          description: The PowerAutomate workflow ID for fetching table names
         - in: query
           name: api-version
           required: false

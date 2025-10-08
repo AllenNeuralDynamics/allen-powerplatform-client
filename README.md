@@ -35,18 +35,26 @@ To contribute:
 
 ### 3. Regenerate the Client
 
-Run the client generation script:
+The client can be re-generated using the docker image: 
 
 ```bash
-openapi-generator-cli generate \
-  -i openapi.yaml \
+docker run --rm \
+  -v ${PWD}:/local \
+  openapitools/openapi-generator-cli generate \
+  -i /local/openapi.yaml \
   -g python \
-  -o allen-dataverse-client \
+  -o /local/allen-dataverse-client \
   --skip-validate-spec \
   --additional-properties packageName=allen_dataverse_client,projectName=allen-dataverse-client
 ```
 
-Note: the `skip-validate-spec` flag is used to allow env variable placeholders in the OpenAPI spec. 
+On Windows PowerShell:
+```powershell
+docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli generate -i /local/openapi.yaml -g python -o /local/allen-dataverse-client --skip-validate-spec --additional-properties packageName=allen_dataverse_client,projectName=allen-dataverse-client
+```
+
+Note: the `skip-validate-spec` flag is used to allow env variable placeholders in the OpenAPI spec.
+
 
 ### 4. Test Changes
 
