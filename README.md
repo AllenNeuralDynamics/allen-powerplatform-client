@@ -15,6 +15,7 @@ Dataverse → PowerAutomate Flows → OpenAPI Spec → Generated Python Client
 ```
 
 To contribute: 
+
 ### 1. Update/Create PowerAutomate Flows
 
 - Navigate to PowerAutomate and locate the relevant flow
@@ -26,37 +27,79 @@ To contribute:
 
 - Edit `openapi.yaml` to reflect changes made to the PowerAutomate flows. This can be done directly or via the PowerAutomate Custom Connector UI. More on this below.
 - Update paths, parameters, request/response schemas as needed
-- Use environment variable placeholders instead of path values:
+- Use environment variable placeholders for configuration:
   - `${DATAVERSE_HOST}` for the host
-  - `${DATAVERSE_WORKFLOW_*_PATH}` for workflow endpoints
-  - `${DATAVERSE_API_VERSION}`, `${DATAVERSE_SP}`, `${DATAVERSE_SV}` for query parameters
+  - `${DATAVERSE_TENANT_ID}` for OAuth tenant ID
 
-- Note: The `openapi.yaml` can be updated through PowerAutomate UI by updating the "allen-dataverse-client" custom connector. This is useful for testing. Remember to copy changes into this repository and ensure all secret values are replaced with environement variables. 
+- Note: The `openapi.yaml` can be updated through PowerAutomate UI by updating the "allen-dataverse-client" custom connector. This is useful for testing. Remember to copy changes into this repository and ensure all secret values are replaced with environment variables. 
 
-### 3. Regenerate the Client
-
-The client can be re-generated using the docker image: 
-
+### 3. Generate the Client
 ```bash
 docker run --rm \
-  -v ${PWD}:/local \
+  -v "$(pwd)":/local \
   openapitools/openapi-generator-cli generate \
   -i /local/openapi.yaml \
   -g python \
   -o /local/allen-dataverse-client \
-  --skip-validate-spec \
   --additional-properties packageName=allen_dataverse_client,projectName=allen-dataverse-client
 ```
 
-On Windows PowerShell:
-```powershell
-docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli generate -i /local/openapi.yaml -g python -o /local/allen-dataverse-client --skip-validate-spec --additional-properties packageName=allen_dataverse_client,projectName=allen-dataverse-client
+### 4. Using the Client
+
+#### Install
+```bash
+pip install -e ./allen-dataverse-client
+pip install requests
 ```
 
-Note: the `skip-validate-spec` flag is used to allow env variable placeholders in the OpenAPI spec.
+#### Basic Usage
+```python
+import os
+import requests
+from allen_dataverse_client import DefaultApi, Configuration, ApiClient, ProjectRequest, TableRequest
 
+# Get OAuth token
+token_url = f"https://login.microsoftonline.com/{os.environ['DATAVERSE_TENANT_ID']}/oauth2/v2.0/token"
+payload = {
+    'grant_type': 'client_credentials',
+    'client_id': os.environ['DATAVERSE_CLIENT_ID'],
+    'client_secret': os.environ['DATAVERSE_CLIENT_SECRET'],
+    'scope': 'https://service.flow.microsoft.com//.default'
+}
+token = requests.post(token_url, data=payload).json()['access_token']
 
-### 4. Test Changes
+# Configure client
+config = Configuration()
+config.host = f"https://{os.environ['DATAVERSE_HOST']}"
+config.access_token = token
+api = DefaultApi(ApiClient(config))
 
-- Install the updated client: `pip install -e .`
-- Run integration tests to verify functionality. Recommended to test via Custom connectors and python client. 
+# Use the client
+response = api.fetch_project_by_name(
+    project_workflow_id=os.environ['DATAVERSE_WORKFLOW_PROJECT_ID'],
+    api_version=1,
+    body=ProjectRequest(project_name="CCF Template")
+)
+```
+
+## Authentication Notes
+
+**Important:** The generated OpenAPI client does not handle OAuth2 automatically. While the OpenAPI spec defines OAuth2 client credentials flow, the generated Python client requires manual token management.
+
+This is expected behavior for most OpenAPI generators and is the industry standard approach for security and flexibility reasons.
+
+### Production Usage
+
+For production deployments, consider implementing:
+- **Token caching** to avoid frequent token requests
+- **Token refresh logic** to handle expired tokens
+- **Error handling** for authentication failures
+- **Wrapper class** to encapsulate OAuth logic
+
+## Available Endpoints
+
+- **`fetch_project_by_name`** - Fetch project data by project name
+- **`fetch_table_by_name`** - Fetch table data by table name  
+- **`fetch_table_names`** - Fetch all custom table names in the environment
+
+All endpoints use PowerAutomate workflow IDs as path parameters, making them configurable across different environments (dev/prod) via environment variables.

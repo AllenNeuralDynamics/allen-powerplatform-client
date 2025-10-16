@@ -4,6 +4,7 @@ info:
   description: REST API client to trigger PowerAutomate flows for Dataverse operations
   version: 1.0.0
 host: ${DATAVERSE_HOST}
+basePath: /
 schemes:
   - https
 consumes:
@@ -11,130 +12,114 @@ consumes:
 produces:
   - application/json
 
+securityDefinitions:
+  oauth2-auth:
+    type: oauth2
+    flow: accessCode
+    tokenUrl: https://login.windows.net/${DATAVERSE_TENANT_ID}/oauth2/authorize
+    scopes:
+      https://service.flow.microsoft.com//.default: https://service.flow.microsoft.com//.default
+    authorizationUrl: https://login.microsoftonline.com/${DATAVERSE_TENANT_ID}/oauth2/authorize
+  oAuthClientCredentials:
+    type: oauth2
+    flow: application
+    tokenUrl: https://login.windows.net/${DATAVERSE_TENANT_ID}/oauth2/authorize
+    scopes:
+      https://service.flow.microsoft.com//.default: https://service.flow.microsoft.com//.default
+  certOauth:
+    type: oauth2
+    flow: application
+    tokenUrl: https://login.windows.net/${DATAVERSE_TENANT_ID}/oauth2/authorize
+    scopes:
+      https://service.flow.microsoft.com//.default: https://service.flow.microsoft.com//.default
+
+security:
+  - oauth2-auth:
+      - https://service.flow.microsoft.com//.default
+  - oAuthClientCredentials:
+      - https://service.flow.microsoft.com//.default
+  - certOauth:
+      - https://service.flow.microsoft.com//.default
+
 paths:
   /powerautomate/automations/direct/workflows/{projectWorkflowId}/triggers/manual/paths/invoke:
     post:
-      summary: Fetch project data by project name
-      operationId: fetchProjectByName
+      summary: Trigger Get Project Power Automate Flow
+      description: Triggers a Power Automate flow that fetches project data by project name
+      operationId: FetchProjectByName
       parameters:
         - in: path
           name: projectWorkflowId
           required: true
           type: string
-          description: The PowerAutomate workflow ID
-        - in: query
-          name: api-version
-          required: false
-          type: string
-          default: '2024-10-01'
-        - in: query
-          name: sp
-          required: false
-          type: string
-          default: 'triggers/manual/run'
-        - in: query
-          name: sv
-          required: false
-          type: string
-          default: '1.0'
-        - in: query
-          name: sig
+          description: The PowerAutomate workflow ID for project operations
+        - name: api-version
+          in: query
           required: true
-          type: string
-        - in: body
-          name: body
+          type: integer
+          default: 1
+        - name: body
+          in: body
           required: true
           schema:
             $ref: '#/definitions/ProjectRequest'
       responses:
-        '200':
-          description: Array of projects
+        default:
+          description: Flow triggered successfully
           schema:
-            type: array
-            items:
-              type: object
-              additionalProperties: true
+            type: object
+            additionalProperties: true
 
   /powerautomate/automations/direct/workflows/{tableWorkflowId}/triggers/manual/paths/invoke:
     post:
-      summary: Fetch table data by table name
-      operationId: fetchTableByName
+      summary: Trigger Get Table Power Automate Flow
+      description: Triggers a Power Automate flow that fetches a full table in Dataverse by the logical table name
+      operationId: FetchTableByName
       parameters:
         - in: path
           name: tableWorkflowId
           required: true
           type: string
           description: The PowerAutomate workflow ID for table operations
-        - in: query
-          name: api-version
-          required: false
-          type: string
-          default: '2024-10-01'
-        - in: query
-          name: sp
-          required: false
-          type: string
-          default: 'triggers/manual/run'
-        - in: query
-          name: sv
-          required: false
-          type: string
-          default: '1.0'
-        - in: query
-          name: sig
+        - name: api-version
+          in: query
           required: true
-          type: string
-        - in: body
-          name: body
+          type: integer
+          default: 1
+        - name: body
+          in: body
           required: true
           schema:
             $ref: '#/definitions/TableRequest'
       responses:
-        '200':
-          description: Array of table records
+        default:
+          description: Flow triggered successfully
           schema:
-            type: array
-            items:
-              type: object
-              additionalProperties: true
+            type: object
+            additionalProperties: true
 
   /powerautomate/automations/direct/workflows/{tablesWorkflowId}/triggers/manual/paths/invoke:
     post:
-      summary: Fetch table names in environment
-      operationId: fetchTableNames
+      summary: Trigger GetTableNames Power Automate Flow
+      description: Triggers a Power Automate flow that fetches custom table names in Dataverse
+      operationId: FetchTableNames
       parameters:
         - in: path
           name: tablesWorkflowId
           required: true
           type: string
           description: The PowerAutomate workflow ID for fetching table names
-        - in: query
-          name: api-version
-          required: false
-          type: string
-          default: '2024-10-01'
-        - in: query
-          name: sp
-          required: false
-          type: string
-          default: 'triggers/manual/run'
-        - in: query
-          name: sv
-          required: false
-          type: string
-          default: '1.0'
-        - in: query
-          name: sig
+        - name: api-version
+          in: query
           required: true
-          type: string
+          type: integer
+          default: 1
       responses:
-        '200':
-          description: Array of table definitions
+        default:
+          description: Flow triggered successfully
           schema:
-            type: array
-            items:
-              type: object
-              additionalProperties: true
+            type: object
+            additionalProperties: true
 
 definitions:
   ProjectRequest:
@@ -144,6 +129,9 @@ definitions:
     properties:
       projectName:
         type: string
+        example: CCF Template
+        description: The project name in projects table in Dataverse
+        title: Project Name
         
   TableRequest:
     type: object
@@ -152,3 +140,5 @@ definitions:
     properties:
       tableName:
         type: string
+        description: The logical name of Dataverse table
+        title: Table Name
