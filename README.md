@@ -36,8 +36,9 @@ docker run --rm \
   openapitools/openapi-generator-cli generate \
   -i /local/openapi.yaml \
   -g python \
-  -o /local/allen-dataverse-client \
-  --additional-properties packageName=allen_dataverse_client,projectName=allen-dataverse-client
+  -o /local/python-client \
+  -c /local/openapirc_python_client.json \
+  --ignore-file-override /local/.openapi-generator-ignore
 ```
 
 ### 4. Using the Client
