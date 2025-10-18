@@ -1,9 +1,9 @@
 swagger: '2.0'
 info:
-  title: PowerAutomate Dataverse API
-  description: REST API client to trigger PowerAutomate flows for Dataverse operations
-  version: 1.0.0
-host: ${DATAVERSE_HOST}
+  title: Test Dataverse Client
+  description: ''
+  version: '1.0'
+host: 8fd02505cbdee9558087f7d04a48a5.11.environment.api.powerplatform.com
 basePath: /
 schemes:
   - https
@@ -11,28 +11,109 @@ consumes:
   - application/json
 produces:
   - application/json
-
+paths:
+  /powerautomate/automations/direct/workflows/3bd68c3caf34448db7d6e2cd53602f88/triggers/manual/paths/invoke:
+    post:
+      responses:
+        '200':
+          description: default
+          schema:
+            type: object
+            properties: {}
+      summary: Get Project PowerAutomate Flow
+      operationId: FetchProjectByName
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          type: integer
+          default: 1
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              projectName:
+                type: string
+                description: Project name from Projects table
+                title: projectName
+      description: >-
+        Triggers a PowerAutomate flow to get project data from Projects table in
+        Dataverse
+  /powerautomate/automations/direct/workflows/0438716ee92b4378811dbc975401decd/triggers/manual/paths/invoke:
+    post:
+      responses:
+        '200':
+          description: default
+          schema:
+            type: object
+            properties: {}
+      operationId: FetchTableByName
+      summary: Get Table Power Automate Flow
+      description: >-
+        Triggers a PowerAutomate flow to get a full table in Dataverse by the
+        logical table name
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          type: integer
+          default: 1
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              tableName:
+                type: string
+                description: Table name in Dataverse
+                title: tableName
+            required:
+              - tableName
+  /powerautomate/automations/direct/workflows/70452d9b21584637a8023e3d66fc37ea/triggers/manual/paths/invoke:
+    post:
+      responses:
+        '200':
+          description: default
+          schema:
+            type: object
+            properties: {}
+      summary: Get Table Names Power Automate Flow
+      description: >-
+        Triggers a Power Automate flow that fetches custom table names in
+        Dataverse
+      operationId: FetchTableNames
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          type: integer
+          default: 1
+definitions: {}
+parameters: {}
+responses: {}
 securityDefinitions:
   oauth2-auth:
     type: oauth2
     flow: accessCode
-    tokenUrl: https://login.windows.net/${DATAVERSE_TENANT_ID}/oauth2/authorize
+    tokenUrl: https://login.windows.net/common/oauth2/authorize
     scopes:
       https://service.flow.microsoft.com//.default: https://service.flow.microsoft.com//.default
-    authorizationUrl: https://login.microsoftonline.com/${DATAVERSE_TENANT_ID}/oauth2/authorize
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
   oAuthClientCredentials:
     type: oauth2
     flow: application
-    tokenUrl: https://login.windows.net/${DATAVERSE_TENANT_ID}/oauth2/authorize
+    tokenUrl: https://login.windows.net/common/oauth2/authorize
     scopes:
       https://service.flow.microsoft.com//.default: https://service.flow.microsoft.com//.default
   certOauth:
     type: oauth2
     flow: application
-    tokenUrl: https://login.windows.net/${DATAVERSE_TENANT_ID}/oauth2/authorize
+    tokenUrl: https://login.windows.net/common/oauth2/authorize
     scopes:
       https://service.flow.microsoft.com//.default: https://service.flow.microsoft.com//.default
-
 security:
   - oauth2-auth:
       - https://service.flow.microsoft.com//.default
@@ -40,105 +121,4 @@ security:
       - https://service.flow.microsoft.com//.default
   - certOauth:
       - https://service.flow.microsoft.com//.default
-
-paths:
-  /powerautomate/automations/direct/workflows/{projectWorkflowId}/triggers/manual/paths/invoke:
-    post:
-      summary: Trigger Get Project Power Automate Flow
-      description: Triggers a Power Automate flow that fetches project data by project name
-      operationId: FetchProjectByName
-      parameters:
-        - in: path
-          name: projectWorkflowId
-          required: true
-          type: string
-          description: The PowerAutomate workflow ID for project operations
-        - name: api-version
-          in: query
-          required: true
-          type: integer
-          default: 1
-        - name: body
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/ProjectRequest'
-      responses:
-        default:
-          description: Flow triggered successfully
-          schema:
-            type: object
-            additionalProperties: true
-
-  /powerautomate/automations/direct/workflows/{tableWorkflowId}/triggers/manual/paths/invoke:
-    post:
-      summary: Trigger Get Table Power Automate Flow
-      description: Triggers a Power Automate flow that fetches a full table in Dataverse by the logical table name
-      operationId: FetchTableByName
-      parameters:
-        - in: path
-          name: tableWorkflowId
-          required: true
-          type: string
-          description: The PowerAutomate workflow ID for table operations
-        - name: api-version
-          in: query
-          required: true
-          type: integer
-          default: 1
-        - name: body
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/TableRequest'
-      responses:
-        default:
-          description: Flow triggered successfully
-          schema:
-            type: object
-            additionalProperties: true
-
-  /powerautomate/automations/direct/workflows/{tablesWorkflowId}/triggers/manual/paths/invoke:
-    post:
-      summary: Trigger GetTableNames Power Automate Flow
-      description: Triggers a Power Automate flow that fetches custom table names in Dataverse
-      operationId: FetchTableNames
-      parameters:
-        - in: path
-          name: tablesWorkflowId
-          required: true
-          type: string
-          description: The PowerAutomate workflow ID for fetching table names
-        - name: api-version
-          in: query
-          required: true
-          type: integer
-          default: 1
-      responses:
-        default:
-          description: Flow triggered successfully
-          schema:
-            type: object
-            additionalProperties: true
-
-definitions:
-  ProjectRequest:
-    type: object
-    required:
-      - projectName
-    properties:
-      projectName:
-        type: string
-        example: CCF Template
-        description: The project name in projects table in Dataverse
-        title: Project Name
-        
-  TableRequest:
-    type: object
-    required:
-      - tableName
-    properties:
-      tableName:
-        type: string
-        description: The logical name of Dataverse table
-        title: Table Name
+tags: []
