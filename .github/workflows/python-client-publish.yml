@@ -1,0 +1,35 @@
+name: allen-dataverse-client Python package publish
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - python-client/**
+
+permissions:
+  contents: read
+
+jobs:
+  publish_client:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./python-client
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: |
+          pip install --upgrade setuptools wheel twine build
+          python -m build
+          twine check dist/*
+      - name: Publish on PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1.12
+        with:
+          packages-dir: ./python-client/dist
+          password: ${{ secrets.AIND_PYPI_TOKEN }}
