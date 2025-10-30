@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from allen_dataverse_client.models.fetch_project_by_name_request import FetchProjectByNameRequest
+from allen_powerplatform_client.models.fetch_project_by_name_request import FetchProjectByNameRequest
 
 # TODO update the JSON string below
 json = "{}"

@@ -27,11 +27,11 @@ from urllib.parse import quote
 from typing import Tuple, Optional, List, Dict, Union
 from pydantic import SecretStr
 
-from allen_dataverse_client.configuration import Configuration
-from allen_dataverse_client.api_response import ApiResponse, T as ApiResponseT
-import allen_dataverse_client.models
-from allen_dataverse_client import rest
-from allen_dataverse_client.exceptions import (
+from allen_powerplatform_client.configuration import Configuration
+from allen_powerplatform_client.api_response import ApiResponse, T as ApiResponseT
+import allen_powerplatform_client.models
+from allen_powerplatform_client import rest
+from allen_powerplatform_client.exceptions import (
     ApiValueError,
     ApiException,
     BadRequestException,
@@ -456,7 +456,7 @@ class ApiClient:
             if klass in self.NATIVE_TYPES_MAPPING:
                 klass = self.NATIVE_TYPES_MAPPING[klass]
             else:
-                klass = getattr(allen_dataverse_client.models, klass)
+                klass = getattr(allen_powerplatform_client.models, klass)
 
         if klass in self.PRIMITIVE_TYPES:
             return self.__deserialize_primitive(data, klass)

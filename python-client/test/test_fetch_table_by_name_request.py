@@ -14,7 +14,7 @@
 
 import unittest
 
-from allen_dataverse_client.models.fetch_table_by_name_request import FetchTableByNameRequest
+from allen_powerplatform_client.models.fetch_table_by_name_request import FetchTableByNameRequest
 
 class TestFetchTableByNameRequest(unittest.TestCase):
     """FetchTableByNameRequest unit test stubs"""

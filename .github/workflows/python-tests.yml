@@ -1,4 +1,4 @@
-name: allen-dataverse-client Python package
+name: allen-powerplatform-client Python package
 
 on:
   pull_request:
@@ -32,4 +32,4 @@ jobs:
           pip install -r test-requirements.txt
       - name: Test with pytest
         run: |
-          pytest --cov=allen-dataverse-client
+          pytest --cov=allen-powerplatform-client

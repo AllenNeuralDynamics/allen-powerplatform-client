@@ -14,7 +14,7 @@
 
 import unittest
 
-from allen_dataverse_client.models.fetch_project_by_name_request import FetchProjectByNameRequest
+from allen_powerplatform_client.models.fetch_project_by_name_request import FetchProjectByNameRequest
 
 class TestFetchProjectByNameRequest(unittest.TestCase):
     """FetchProjectByNameRequest unit test stubs"""
