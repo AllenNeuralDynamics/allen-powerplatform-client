@@ -81,7 +81,7 @@ jobs:
           message: "ci: add clients [skip actions]"
           add: '["python-client"]'
   publish_client:
-    needs: bump_version
+    needs: build_client
     runs-on: ubuntu-latest
     defaults:
       run:
