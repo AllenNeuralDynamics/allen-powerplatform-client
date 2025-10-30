@@ -12,13 +12,55 @@ permissions:
   contents: read
 
 jobs:
+  bump_version:
+    name: Bump version
+    runs-on: ubuntu-latest
+    outputs:
+      new_version: ${{ steps.output_version.outputs.new_version }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.default_branch }}
+          fetch-depth: 0
+          token: ${{ secrets.SERVICE_TOKEN }}
+      - name: Pull latest changes
+        run: git pull origin main
+      - name: Compute new version number
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.2
+        with:
+          github_token: ${{ secrets.SERVICE_TOKEN }}
+          release_branches: ${{ inputs.default_branch }}
+          default_bump: patch
+          dry_run: true  # Perform dryrun first to calculate new version
+      - name: Get version file name set variables
+        run: |
+          echo "VERSION_FILE=openapirc_python_client.json" >> "$GITHUB_ENV"
+          echo "VERSION=${{ steps.tag_version.outputs.new_version }}" >> "$GITHUB_ENV"
+      - name: Update version file with new version
+        run: |
+          grep "packageVersion" "$VERSION_FILE"
+          sed -i --debug --expression="s|\"packageVersion\".*|\"packageVersion\": \"${{ env.VERSION }}\"|" "$VERSION_FILE"
+      - name: Set output
+        id: output_version
+        run: echo "new_version=${{ env.VERSION }}" >> "$GITHUB_OUTPUT"
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          default_author: github_actions
+          message: "ci: version bump [skip actions]"
+          add: ${{ env.VERSION_FILE }}
   publish_client:
+    needs: bump_version
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./python-client
     steps:
       - uses: actions/checkout@v4
+      - name: Pull latest changes
+        run: git pull origin main
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
