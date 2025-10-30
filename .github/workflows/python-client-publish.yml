@@ -1,4 +1,4 @@
-name: allen-dataverse-client Python package publish
+name: allen-powerplatform-client Python package publish
 
 on:
   workflow_dispatch:

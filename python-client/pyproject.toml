@@ -1,5 +1,5 @@
 [project]
-name = "allen_dataverse_client"
+name = "allen_powerplatform_client"
 version = "0.0.1"
 description = "Test Dataverse Client"
 authors = [
@@ -40,7 +40,7 @@ extension-pkg-whitelist = "pydantic"
 
 [tool.mypy]
 files = [
-  "allen_dataverse_client",
+  "allen_powerplatform_client",
   #"test",  # auto-generated tests
   "tests", # hand-written tests
 ]
@@ -78,7 +78,7 @@ disallow_any_generics = true
 
 [[tool.mypy.overrides]]
 module = [
-  "allen_dataverse_client.configuration",
+  "allen_powerplatform_client.configuration",
 ]
 warn_unused_ignores = true
 strict_equality = true

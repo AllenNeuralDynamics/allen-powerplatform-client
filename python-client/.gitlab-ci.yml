@@ -12,7 +12,7 @@ stages:
   script:
    - pip install -r requirements.txt
    - pip install -r test-requirements.txt
-   - pytest --cov=allen_dataverse_client
+   - pytest --cov=allen_powerplatform_client
 
 pytest-3.9:
   extends: .pytest
