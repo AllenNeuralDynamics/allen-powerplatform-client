@@ -8,9 +8,6 @@ on:
     paths:
       - python-client/**
 
-permissions:
-  contents: read
-
 jobs:
   bump_version:
     name: Bump version
