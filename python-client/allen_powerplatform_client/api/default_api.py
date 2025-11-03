@@ -18,12 +18,12 @@ from typing_extensions import Annotated
 
 from pydantic import StrictInt
 from typing import Any, Dict
-from allen_dataverse_client.models.fetch_project_by_name_request import FetchProjectByNameRequest
-from allen_dataverse_client.models.fetch_table_by_name_request import FetchTableByNameRequest
+from allen_powerplatform_client.models.fetch_project_by_name_request import FetchProjectByNameRequest
+from allen_powerplatform_client.models.fetch_table_by_name_request import FetchTableByNameRequest
 
-from allen_dataverse_client.api_client import ApiClient, RequestSerialized
-from allen_dataverse_client.api_response import ApiResponse
-from allen_dataverse_client.rest import RESTResponseType
+from allen_powerplatform_client.api_client import ApiClient, RequestSerialized
+from allen_powerplatform_client.api_response import ApiResponse
+from allen_powerplatform_client.rest import RESTResponseType
 
 
 class DefaultApi:

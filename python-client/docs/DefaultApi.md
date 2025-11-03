@@ -1,4 +1,4 @@
-# allen_dataverse_client.DefaultApi
+# allen_powerplatform_client.DefaultApi
 
 All URIs are relative to *https://8fd02505cbdee9558087f7d04a48a5.11.environment.api.powerplatform.com*
 
@@ -23,14 +23,14 @@ Triggers a PowerAutomate flow to get project data from Projects table in Dataver
 * OAuth Authentication (certOauth):
 
 ```python
-import allen_dataverse_client
-from allen_dataverse_client.models.fetch_project_by_name_request import FetchProjectByNameRequest
-from allen_dataverse_client.rest import ApiException
+import allen_powerplatform_client
+from allen_powerplatform_client.models.fetch_project_by_name_request import FetchProjectByNameRequest
+from allen_powerplatform_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://8fd02505cbdee9558087f7d04a48a5.11.environment.api.powerplatform.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = allen_dataverse_client.Configuration(
+configuration = allen_powerplatform_client.Configuration(
     host = "https://8fd02505cbdee9558087f7d04a48a5.11.environment.api.powerplatform.com"
 )
 
@@ -46,11 +46,11 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
-with allen_dataverse_client.ApiClient(configuration) as api_client:
+with allen_powerplatform_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = allen_dataverse_client.DefaultApi(api_client)
+    api_instance = allen_powerplatform_client.DefaultApi(api_client)
     api_version = 1 # int |  (default to 1)
-    body = allen_dataverse_client.FetchProjectByNameRequest() # FetchProjectByNameRequest | 
+    body = allen_powerplatform_client.FetchProjectByNameRequest() # FetchProjectByNameRequest | 
 
     try:
         # Get Project PowerAutomate Flow
@@ -106,14 +106,14 @@ Triggers a PowerAutomate flow to get a full table in Dataverse by the logical ta
 * OAuth Authentication (certOauth):
 
 ```python
-import allen_dataverse_client
-from allen_dataverse_client.models.fetch_table_by_name_request import FetchTableByNameRequest
-from allen_dataverse_client.rest import ApiException
+import allen_powerplatform_client
+from allen_powerplatform_client.models.fetch_table_by_name_request import FetchTableByNameRequest
+from allen_powerplatform_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://8fd02505cbdee9558087f7d04a48a5.11.environment.api.powerplatform.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = allen_dataverse_client.Configuration(
+configuration = allen_powerplatform_client.Configuration(
     host = "https://8fd02505cbdee9558087f7d04a48a5.11.environment.api.powerplatform.com"
 )
 
@@ -129,11 +129,11 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
-with allen_dataverse_client.ApiClient(configuration) as api_client:
+with allen_powerplatform_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = allen_dataverse_client.DefaultApi(api_client)
+    api_instance = allen_powerplatform_client.DefaultApi(api_client)
     api_version = 1 # int |  (default to 1)
-    body = allen_dataverse_client.FetchTableByNameRequest() # FetchTableByNameRequest | 
+    body = allen_powerplatform_client.FetchTableByNameRequest() # FetchTableByNameRequest | 
 
     try:
         # Get Table Power Automate Flow
@@ -189,13 +189,13 @@ Triggers a Power Automate flow that fetches custom table names in Dataverse
 * OAuth Authentication (certOauth):
 
 ```python
-import allen_dataverse_client
-from allen_dataverse_client.rest import ApiException
+import allen_powerplatform_client
+from allen_powerplatform_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://8fd02505cbdee9558087f7d04a48a5.11.environment.api.powerplatform.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = allen_dataverse_client.Configuration(
+configuration = allen_powerplatform_client.Configuration(
     host = "https://8fd02505cbdee9558087f7d04a48a5.11.environment.api.powerplatform.com"
 )
 
@@ -211,9 +211,9 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
-with allen_dataverse_client.ApiClient(configuration) as api_client:
+with allen_powerplatform_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = allen_dataverse_client.DefaultApi(api_client)
+    api_instance = allen_powerplatform_client.DefaultApi(api_client)
     api_version = 1 # int |  (default to 1)
 
     try:

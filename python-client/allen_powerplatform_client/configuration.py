@@ -235,7 +235,7 @@ class Configuration:
         self.logger = {}
         """Logging Settings
         """
-        self.logger["package_logger"] = logging.getLogger("allen_dataverse_client")
+        self.logger["package_logger"] = logging.getLogger("allen_powerplatform_client")
         self.logger["urllib3_logger"] = logging.getLogger("urllib3")
         self.logger_format = '%(asctime)s %(levelname)s %(message)s'
         """Log format
@@ -526,7 +526,7 @@ class Configuration:
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.0\n"\
-               "SDK Package Version: 0.0.1".\
+               "SDK Package Version: 0.0.2".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self) -> List[HostSetting]:

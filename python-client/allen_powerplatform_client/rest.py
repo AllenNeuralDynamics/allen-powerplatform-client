@@ -19,7 +19,7 @@ import ssl
 
 import urllib3
 
-from allen_dataverse_client.exceptions import ApiException, ApiValueError
+from allen_powerplatform_client.exceptions import ApiException, ApiValueError
 
 SUPPORTED_SOCKS_PROXIES = {"socks5", "socks5h", "socks4", "socks4a"}
 RESTResponseType = urllib3.HTTPResponse

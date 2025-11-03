@@ -14,7 +14,7 @@
 
 import unittest
 
-from allen_dataverse_client.api.default_api import DefaultApi
+from allen_powerplatform_client.api.default_api import DefaultApi
 
 
 class TestDefaultApi(unittest.TestCase):

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from allen_dataverse_client.models.fetch_table_by_name_request import FetchTableByNameRequest
+from allen_powerplatform_client.models.fetch_table_by_name_request import FetchTableByNameRequest
 
 # TODO update the JSON string below
 json = "{}"

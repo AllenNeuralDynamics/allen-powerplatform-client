@@ -12,7 +12,7 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-# import models into model package
-from allen_dataverse_client.models.fetch_project_by_name_request import FetchProjectByNameRequest
-from allen_dataverse_client.models.fetch_table_by_name_request import FetchTableByNameRequest
 
+# import models into model package
+from allen_powerplatform_client.models.fetch_project_by_name_request import FetchProjectByNameRequest
+from allen_powerplatform_client.models.fetch_table_by_name_request import FetchTableByNameRequest
