@@ -8,28 +8,47 @@ A Python client library for triggering PowerAutomate workflows.
 
 ## Contributing
 
-This package is generated from PowerAutomate flows and OpenAPI specifications. The overall architecture is: 
+**Important**: Contributors should **only** edit the OpenAPI specification through PowerAutomate's Custom Connector interface, not by directly modifying the `openapi.yaml` file.
 
-```
-PowerAutomate Flows → OpenAPI Spec → Generated Python Client
-```
+The general contribution workflow is as follows:
 
-To contribute: 
+![Contribution workflow](./docs/contribution-workflow-diagram.png)
+
 
 ### 1. Update/Create PowerAutomate Flows
 
-- Navigate to PowerAutomate and locate the relevant flow
-- Make necessary changes to the flow logic, inputs, or outputs in PowerAutomate editor. 
-- Test the flow to ensure it works as expected.
+- Navigate to PowerAutomate and locate the relevant flow (or create a new one)
+- Make necessary changes to the flow logic, inputs, or outputs in the PowerAutomate editor
+- Test the flow thoroughly to ensure it works as expected
 - Note any changes to input/output schemas
 
-### 2. Update OpenAPI Specification
+### 2. Update the Custom Connector
 
-- Edit `openapi.yaml` to reflect changes made to the PowerAutomate flows through the PowerAutomate Custom Connector UI (named: "allen-powerplatform-client"). More on this below.
-- Update paths, parameters, request/response schemas as needed
-- Note: The `openapi.yaml` was created using PowerAutomate Custom Connector.
+<img align="right" src="./docs/custom-connector-definition.png" alt="Custom Connector Definition" width="300">
 
-### 3. Generate the Client
+- Open PowerAutomate's Custom Connector interface (connector name: "allen-powerplatform-client")
+- In the connector's definition, update/add an action to reflect any changes made to the PowerAutomate flows
+- This may include:
+  - Adding new operations/endpoints for new flows:
+    - Select "+ New Action" and fill in General details.
+    - To define the Request, select "Import from Sample" and copy the HTTP trigger URL of the flow.
+    - Add a default response schema to ensure the flow's response is serialized correctly.
+  - Modifying existing operation parameters:
+    - Modify desired action as necessary. Ensure request and response definitions are as expected. 
+- Once changes are complete, update connector and test to ensure it properly triggers the flows
+
+<br clear="right">
+
+
+### 3. Export the Updated OpenAPI Specification
+
+- Once the Custom Connector is updated and tested, export the OpenAPI specification. Turn on "Swagger editor" in the Custom Connector.
+- Copy the exported API spec into the contents of `openapi.yaml` in this repository
+- **Do not manually edit the `openapi.yaml` file** - it should only be updated through the Custom Connector export process
+
+### 4. Generate the Client
+- The python client is generated using openapi-generator. 
+
 ```bash
 docker run --rm \
   -v "$(pwd)":/local \
@@ -40,12 +59,13 @@ docker run --rm \
   -c /local/openapirc_python_client.json \
   --ignore-file-override /local/.openapi-generator-ignore
 ```
+Note: The openapi-generator command is expected to run during github actions to automatically update the python client on a push to main. You can run this command to test locally, but the repository's client should only be updated through Github workflows. 
 
-### 4. Using the Client
+### 5. Using the Client
 
 #### Install
 ```bash
-pip install -e ./allen-powerplatform-client
+pip install -e ./python-client
 pip install requests
 ```
 
@@ -53,21 +73,21 @@ pip install requests
 ```python
 import os
 import requests
-from allen_powerplatform_client import DefaultApi, Configuration, ApiClient, FetchProjectByNameRequest
+from allen_dataverse_client import DefaultApi, Configuration, ApiClient, FetchProjectByNameRequest
 
 # Get OAuth token
-token_url = f"https://login.microsoftonline.com/{os.environ['TENANT_ID']}/oauth2/v2.0/token"
+token_url = f"https://login.microsoftonline.com/{os.environ['DATAVERSE_TENANT_ID']}/oauth2/v2.0/token"
 payload = {
     'grant_type': 'client_credentials',
-    'client_id': os.environ['CLIENT_ID'],
-    'client_secret': os.environ['CLIENT_SECRET'],
+    'client_id': os.environ['DATAVERSE_CLIENT_ID'],
+    'client_secret': os.environ['DATAVERSE_CLIENT_SECRET'],
     'scope': 'https://service.flow.microsoft.com//.default'
 }
 token = requests.post(token_url, data=payload).json()['access_token']
 
 # Configure client
 config = Configuration()
-config.host = f"https://{os.environ['HOST']}"
+config.host = f"https://{os.environ['DATAVERSE_HOST']}"
 config.access_token = token
 api = DefaultApi(ApiClient(config))
 
@@ -99,8 +119,4 @@ For production deployments, consider implementing:
 
 ## Available Endpoints
 
-- **`fetch_project_by_name`** - Fetch project data by project name
-- **`fetch_table_by_name`** - Fetch table data by table name  
-- **`fetch_table_names`** - Fetch all custom table names in the environment
-
-All endpoints use PowerAutomate workflow IDs as path parameters, making them configurable across different environments (dev/prod) via environment variables.
+The API endpoints correspond to PowerAutomate flow triggers. All endpoints use PowerAutomate workflow IDs as path parameters, making them configurable across different environments (dev/prod) via environment variables. To learn more how to use the client, see python-client/README.md.
