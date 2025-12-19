@@ -26,9 +26,12 @@ paths:
       parameters:
         - name: api-version
           in: query
-          required: true
+          required: false
           type: integer
-          default: 1
+        - name: Content-Type
+          in: header
+          required: false
+          type: string
         - name: body
           in: body
           required: false
@@ -88,9 +91,12 @@ paths:
       parameters:
         - name: api-version
           in: query
-          required: true
+          required: false
           type: integer
-          default: 1
+        - name: Content-Type
+          in: header
+          required: false
+          type: string
         - name: body
           in: body
           required: false
@@ -134,9 +140,12 @@ paths:
       parameters:
         - name: api-version
           in: query
-          required: true
+          required: false
           type: integer
-          default: 1
+        - name: Content-Type
+          in: header
+          required: false
+          type: string
 definitions: {}
 parameters: {}
 responses: {}
