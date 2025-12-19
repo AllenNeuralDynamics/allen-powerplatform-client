@@ -122,6 +122,21 @@ paths:
               software_version:
                 type: string
                 description: software_version
+  /powerautomate/automations/direct/workflows/0438716ee92b4378811dbc975401decd/triggers/manual/paths/invoke:
+    get:
+      responses:
+        '200':
+          description: default
+          schema: {}
+      summary: Gets all data for a table by table name
+      description: gets all data for a table by table name
+      operationId: GetTable
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          type: integer
+          default: 1
 definitions: {}
 parameters: {}
 responses: {}
