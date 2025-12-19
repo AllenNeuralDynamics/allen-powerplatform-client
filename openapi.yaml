@@ -1,27 +1,28 @@
 swagger: '2.0'
 info:
-  title: Test Dataverse Client
+  title: Power Platform Connector
   description: ''
   version: '1.0'
 host: 8fd02505cbdee9558087f7d04a48a5.11.environment.api.powerplatform.com
 basePath: /
 schemes:
   - https
-consumes:
-  - application/json
-produces:
-  - application/json
+consumes: []
+produces: []
 paths:
-  /powerautomate/automations/direct/workflows/3bd68c3caf34448db7d6e2cd53602f88/triggers/manual/paths/invoke:
+  /powerautomate/automations/direct/workflows/6148df039f724a4da146cc793585b8d2/triggers/manual/paths/invoke:
     post:
       responses:
         '200':
           description: default
-          schema:
-            type: object
-            properties: {}
-      summary: Get Project PowerAutomate Flow
-      operationId: FetchProjectByName
+          schema: {}
+      description: >-
+        Posts a water record from WaterLog into the dataverse weights water
+        table
+      operationId: PostWaterRecord
+      summary: >-
+        Posts a water record from WaterLog into the dataverse weights water
+        table
       parameters:
         - name: api-version
           in: query
@@ -30,30 +31,60 @@ paths:
           default: 1
         - name: body
           in: body
-          required: true
+          required: false
           schema:
             type: object
             properties:
-              projectName:
+              mouse_id:
                 type: string
-                description: Project name from Projects table
-                title: projectName
-      description: >-
-        Triggers a PowerAutomate flow to get project data from Projects table in
-        Dataverse
-  /powerautomate/automations/direct/workflows/0438716ee92b4378811dbc975401decd/triggers/manual/paths/invoke:
+                description: mouse_id
+              weight:
+                type: integer
+                format: int32
+                description: weight
+              date_time:
+                type: string
+                description: date_time
+              water_total:
+                type: integer
+                format: int32
+                description: water_total
+              water_supplemental_provided:
+                type: number
+                format: float
+                description: water_supplemental_provided
+              water_supplemental_recommended:
+                type: number
+                format: float
+                description: water_supplemental_recommended
+              water_task:
+                type: number
+                format: float
+                description: water_task
+              user_email:
+                type: string
+                description: user_email
+              operator_notes:
+                type: string
+                description: operator_notes
+              workstation:
+                type: string
+                description: workstation
+              software_source:
+                type: string
+                description: software_source
+              software_version:
+                type: string
+                description: software_version
+  /powerautomate/automations/direct/workflows/4be33b76ba3843058033eeb4d82b5240/triggers/manual/paths/invoke:
     post:
       responses:
         '200':
           description: default
-          schema:
-            type: object
-            properties: {}
-      operationId: FetchTableByName
-      summary: Get Table Power Automate Flow
-      description: >-
-        Triggers a PowerAutomate flow to get a full table in Dataverse by the
-        logical table name
+          schema: {}
+      summary: Posts a weight record from water log
+      description: posts a weight record from waterlog
+      operationId: PostWeightRecord
       parameters:
         - name: api-version
           in: query
@@ -62,38 +93,46 @@ paths:
           default: 1
         - name: body
           in: body
-          required: true
+          required: false
           schema:
             type: object
             properties:
-              tableName:
+              mouse_id:
                 type: string
-                description: Table name in Dataverse
-                title: tableName
-            required:
-              - tableName
-  /powerautomate/automations/direct/workflows/70452d9b21584637a8023e3d66fc37ea/triggers/manual/paths/invoke:
-    post:
-      responses:
-        '200':
-          description: default
-          schema:
-            type: object
-            properties: {}
-      summary: Get Table Names Power Automate Flow
-      description: >-
-        Triggers a Power Automate flow that fetches custom table names in
-        Dataverse
-      operationId: FetchTableNames
-      parameters:
-        - name: api-version
-          in: query
-          required: true
-          type: integer
-          default: 1
+                description: mouse_id
+              weight:
+                type: integer
+                format: int32
+                description: weight
+              date_time:
+                type: string
+                description: date_time
+              user_email:
+                type: string
+                description: user_email
+              operator_notes:
+                type: string
+                description: operator_notes
+              workstation:
+                type: string
+                description: workstation
+              software_source:
+                type: string
+                description: software_source
+              software_version:
+                type: string
+                description: software_version
 definitions: {}
 parameters: {}
 responses: {}
+security:
+  - oauth2-auth:
+      - https://service.flow.microsoft.com//.default
+  - oAuthClientCredentials:
+      - https://service.flow.microsoft.com//.default
+  - certOauth:
+      - https://service.flow.microsoft.com//.default
+tags: []
 securityDefinitions:
   oauth2-auth:
     type: oauth2
@@ -114,11 +153,3 @@ securityDefinitions:
     tokenUrl: https://login.windows.net/common/oauth2/authorize
     scopes:
       https://service.flow.microsoft.com//.default: https://service.flow.microsoft.com//.default
-security:
-  - oauth2-auth:
-      - https://service.flow.microsoft.com//.default
-  - oAuthClientCredentials:
-      - https://service.flow.microsoft.com//.default
-  - certOauth:
-      - https://service.flow.microsoft.com//.default
-tags: []
