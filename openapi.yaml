@@ -7,8 +7,10 @@ host: 8fd02505cbdee9558087f7d04a48a5.11.environment.api.powerplatform.com
 basePath: /
 schemes:
   - https
-consumes: []
-produces: []
+consumes:
+  - application/json
+produces:
+  - application/json
 paths:
   /powerautomate/automations/direct/workflows/6148df039f724a4da146cc793585b8d2/triggers/manual/paths/invoke:
     post:
@@ -42,15 +44,15 @@ paths:
                 type: string
                 description: mouse_id
               weight:
-                type: integer
-                format: int32
+                type: number
+                format: float
                 description: weight
               date_time:
                 type: string
                 description: date_time
               water_total:
-                type: integer
-                format: int32
+                type: number
+                format: float
                 description: water_total
               water_supplemental_provided:
                 type: number
@@ -107,8 +109,8 @@ paths:
                 type: string
                 description: mouse_id
               weight:
-                type: integer
-                format: int32
+                type: number
+                format: float
                 description: weight
               date_time:
                 type: string
