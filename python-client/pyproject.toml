@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "allen_powerplatform_client"
-version = "0.0.2"
-description = "Test Dataverse Client"
+version = "0.1.0"
+description = "Power Platform Connector"
 authors = ["OpenAPI Generator Community <team@openapitools.org>"]
 license = "NoLicense"
 readme = "README.md"
 repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
-keywords = ["OpenAPI", "OpenAPI-Generator", "Test Dataverse Client"]
+keywords = ["OpenAPI", "OpenAPI-Generator", "Power Platform Connector"]
 include = ["allen_powerplatform_client/py.typed"]
 
 [tool.poetry.dependencies]
