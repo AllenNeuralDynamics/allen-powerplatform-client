@@ -44,15 +44,15 @@ paths:
                 type: string
                 description: mouse_id
               weight:
-                type: number
-                format: float
+                type: integer
+                format: int32
                 description: weight
               date_time:
                 type: string
                 description: date_time
               water_total:
-                type: number
-                format: float
+                type: integer
+                format: int32
                 description: water_total
               water_supplemental_provided:
                 type: number
@@ -109,8 +109,8 @@ paths:
                 type: string
                 description: mouse_id
               weight:
-                type: number
-                format: float
+                type: integer
+                format: int32
                 description: weight
               date_time:
                 type: string
@@ -131,7 +131,7 @@ paths:
                 type: string
                 description: software_version
   /powerautomate/automations/direct/workflows/0438716ee92b4378811dbc975401decd/triggers/manual/paths/invoke:
-    get:
+    post:
       responses:
         '200':
           description: default
@@ -144,10 +144,82 @@ paths:
           in: query
           required: false
           type: integer
-        - name: Content-Type
-          in: header
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              table_name:
+                type: string
+                description: Table name in Dataverse
+                title: table_name
+            required:
+              - table_name
+  /powerautomate/automations/direct/workflows/70452d9b21584637a8023e3d66fc37ea/triggers/manual/paths/invoke:
+    post:
+      responses:
+        '200':
+          description: default
+          schema:
+            type: object
+            properties: {}
+      summary: Get Table Names Power Automate Flow
+      description: >-
+        Triggers a Power Automate flow that fetches custom table names in
+        Dataverse
+      operationId: FetchTableNames
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          type: integer
+          default: 1
+  /powerautomate/automations/direct/workflows/1370544248f046bb879dc15abffb72a6/triggers/manual/paths/invoke:
+    post:
+      responses:
+        default:
+          description: default
+          schema: {}
+      description: Mouse to Water Restriction, Add Baseline Weight
+      summary: Posts a baseline weight for a mouse
+      operationId: PostBaselineWeight
+      parameters:
+        - name: api-version
+          in: query
           required: false
-          type: string
+          type: integer
+        - name: body
+          in: body
+          required: false
+          schema:
+            type: object
+            properties:
+              mouse_id:
+                type: string
+                description: mouse_id
+              baseline_weight:
+                type: integer
+                format: int32
+                description: baseline_weight
+              date_time:
+                type: string
+                description: date_time
+              user_email:
+                type: string
+                description: user_email
+              operator_notes:
+                type: string
+                description: operator_notes
+              workstation:
+                type: string
+                description: workstation
+              software_source:
+                type: string
+                description: software_source
+              software_version:
+                type: string
+                description: software_version
 definitions: {}
 parameters: {}
 responses: {}
