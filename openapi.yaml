@@ -131,7 +131,7 @@ paths:
                 type: string
                 description: software_version
   /powerautomate/automations/direct/workflows/0438716ee92b4378811dbc975401decd/triggers/manual/paths/invoke:
-    get:
+    post:
       responses:
         '200':
           description: default
@@ -144,10 +144,37 @@ paths:
           in: query
           required: false
           type: integer
-        - name: Content-Type
-          in: header
-          required: false
-          type: string
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              table_name:
+                type: string
+                description: Table name in Dataverse
+                title: table_name
+            required:
+              - table_name
+  /powerautomate/automations/direct/workflows/70452d9b21584637a8023e3d66fc37ea/triggers/manual/paths/invoke:
+    post:
+      responses:
+        '200':
+          description: default
+          schema:
+            type: object
+            properties: {}
+      summary: Get Table Names Power Automate Flow
+      description: >-
+        Triggers a Power Automate flow that fetches custom table names in
+        Dataverse
+      operationId: FetchTableNames
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          type: integer
+          default: 1
 definitions: {}
 parameters: {}
 responses: {}
