@@ -29,7 +29,7 @@ paths:
         - name: api-version
           in: query
           required: false
-          type: integer
+          type: number
         - name: Content-Type
           in: header
           required: false
@@ -44,15 +44,15 @@ paths:
                 type: string
                 description: mouse_id
               weight:
-                type: integer
-                format: int32
+                type: number
+                format: float
                 description: weight
               date_time:
                 type: string
                 description: date_time
               water_total:
-                type: integer
-                format: int32
+                type: number
+                format: float
                 description: water_total
               water_supplemental_provided:
                 type: number
@@ -94,7 +94,7 @@ paths:
         - name: api-version
           in: query
           required: false
-          type: integer
+          type: number
         - name: Content-Type
           in: header
           required: false
@@ -109,8 +109,8 @@ paths:
                 type: string
                 description: mouse_id
               weight:
-                type: integer
-                format: int32
+                type: number
+                format: float
                 description: weight
               date_time:
                 type: string
@@ -143,7 +143,7 @@ paths:
         - name: api-version
           in: query
           required: false
-          type: integer
+          type: number
         - name: body
           in: body
           required: true
@@ -173,7 +173,7 @@ paths:
         - name: api-version
           in: query
           required: true
-          type: integer
+          type: number
           default: 1
   /powerautomate/automations/direct/workflows/1370544248f046bb879dc15abffb72a6/triggers/manual/paths/invoke:
     post:
@@ -188,7 +188,7 @@ paths:
         - name: api-version
           in: query
           required: false
-          type: integer
+          type: number
         - name: body
           in: body
           required: false
@@ -199,8 +199,8 @@ paths:
                 type: string
                 description: mouse_id
               baseline_weight:
-                type: integer
-                format: int32
+                type: number
+                format: float
                 description: baseline_weight
               date_time:
                 type: string
