@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 # import apis into sdk package
 from allen_powerplatform_client.api.default_api import DefaultApi
@@ -31,5 +31,6 @@ from allen_powerplatform_client.exceptions import ApiAttributeError
 from allen_powerplatform_client.exceptions import ApiException
 
 # import models into sdk package
+from allen_powerplatform_client.models.get_table_request import GetTableRequest
 from allen_powerplatform_client.models.post_water_record_request import PostWaterRecordRequest
 from allen_powerplatform_client.models.post_weight_record_request import PostWeightRecordRequest

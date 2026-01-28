@@ -26,6 +26,13 @@ class TestDefaultApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_fetch_table_names(self) -> None:
+        """Test case for fetch_table_names
+
+        Get Table Names Power Automate Flow
+        """
+        pass
+
     def test_get_table(self) -> None:
         """Test case for get_table
 

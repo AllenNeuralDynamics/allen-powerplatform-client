@@ -14,5 +14,6 @@
 
 
 # import models into model package
+from allen_powerplatform_client.models.get_table_request import GetTableRequest
 from allen_powerplatform_client.models.post_water_record_request import PostWaterRecordRequest
 from allen_powerplatform_client.models.post_weight_record_request import PostWeightRecordRequest
