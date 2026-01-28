@@ -175,6 +175,51 @@ paths:
           required: true
           type: integer
           default: 1
+  /powerautomate/automations/direct/workflows/1370544248f046bb879dc15abffb72a6/triggers/manual/paths/invoke:
+    post:
+      responses:
+        default:
+          description: default
+          schema: {}
+      description: Mouse to Water Restriction, Add Baseline Weight
+      summary: Posts a baseline weight for a mouse
+      operationId: PostBaselineWeight
+      parameters:
+        - name: api-version
+          in: query
+          required: false
+          type: integer
+        - name: body
+          in: body
+          required: false
+          schema:
+            type: object
+            properties:
+              mouse_id:
+                type: string
+                description: mouse_id
+              baseline_weight:
+                type: number
+                format: float
+                description: baseline_weight
+              date_time:
+                type: string
+                description: date_time
+              user_email:
+                type: string
+                description: user_email
+              operator_notes:
+                type: string
+                description: operator_notes
+              workstation:
+                type: string
+                description: workstation
+              software_source:
+                type: string
+                description: software_source
+              software_version:
+                type: string
+                description: software_version
 definitions: {}
 parameters: {}
 responses: {}
