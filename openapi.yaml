@@ -29,7 +29,7 @@ paths:
         - name: api-version
           in: query
           required: false
-          type: number
+          type: integer
         - name: Content-Type
           in: header
           required: false
@@ -94,7 +94,7 @@ paths:
         - name: api-version
           in: query
           required: false
-          type: number
+          type: integer
         - name: Content-Type
           in: header
           required: false
@@ -143,7 +143,7 @@ paths:
         - name: api-version
           in: query
           required: false
-          type: number
+          type: integer
         - name: body
           in: body
           required: true
@@ -173,7 +173,7 @@ paths:
         - name: api-version
           in: query
           required: true
-          type: number
+          type: integer
           default: 1
   /powerautomate/automations/direct/workflows/1370544248f046bb879dc15abffb72a6/triggers/manual/paths/invoke:
     post:
@@ -188,7 +188,7 @@ paths:
         - name: api-version
           in: query
           required: false
-          type: number
+          type: integer
         - name: body
           in: body
           required: false
