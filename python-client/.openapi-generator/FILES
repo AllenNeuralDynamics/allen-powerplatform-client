@@ -12,12 +12,14 @@ allen_powerplatform_client/configuration.py
 allen_powerplatform_client/exceptions.py
 allen_powerplatform_client/models/__init__.py
 allen_powerplatform_client/models/get_table_request.py
+allen_powerplatform_client/models/post_baseline_weight_request.py
 allen_powerplatform_client/models/post_water_record_request.py
 allen_powerplatform_client/models/post_weight_record_request.py
 allen_powerplatform_client/py.typed
 allen_powerplatform_client/rest.py
 docs/DefaultApi.md
 docs/GetTableRequest.md
+docs/PostBaselineWeightRequest.md
 docs/PostWaterRecordRequest.md
 docs/PostWeightRecordRequest.md
 pyproject.toml
@@ -28,6 +30,7 @@ test-requirements.txt
 test/__init__.py
 test/test_default_api.py
 test/test_get_table_request.py
+test/test_post_baseline_weight_request.py
 test/test_post_water_record_request.py
 test/test_post_weight_record_request.py
 tox.ini

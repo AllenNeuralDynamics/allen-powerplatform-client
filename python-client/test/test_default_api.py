@@ -40,6 +40,13 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
+    def test_post_baseline_weight(self) -> None:
+        """Test case for post_baseline_weight
+
+        Posts a baseline weight for a mouse
+        """
+        pass
+
     def test_post_water_record(self) -> None:
         """Test case for post_water_record
 
