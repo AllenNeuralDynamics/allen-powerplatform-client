@@ -220,34 +220,62 @@ paths:
               software_version:
                 type: string
                 description: software_version
+  /powerautomate/automations/direct/workflows/1c3c611c372246cd86d8597774beeafe/triggers/manual/paths/invoke:
+    post:
+      responses:
+        default:
+          description: default
+          schema: {}
+      summary: >-
+        Takes an HTTP request containing a mouse ID and an updated water
+        restriction status. It retrieves relevant mouse and water restriction
+        data, compares the old and new statuses, updates the record if needed,
+        and logs any changes for audit purposes.
+      operationId: UpdateWaterRestrictionStatus
+      description: >-
+        Once a mouse is in the Water Restriction table this flow retrieves
+        relevant mouse and water restriction data, compares the old and new
+        statuses, updates the record if needed, and logs any changes for audit
+        purposes.
+      parameters:
+        - name: api-version
+          in: query
+          required: false
+          type: integer
+        - name: body
+          in: body
+          required: false
+          schema:
+            type: object
+            properties:
+              mouse_id:
+                type: string
+                description: mouse_id
+              updated_water_restriction_status:
+                type: string
+                description: updated_water_restriction_status
 definitions: {}
 parameters: {}
 responses: {}
 security:
-  - oauth2-auth:
-      - https://service.flow.microsoft.com//.default
-  - oAuthClientCredentials:
-      - https://service.flow.microsoft.com//.default
-  - certOauth:
-      - https://service.flow.microsoft.com//.default
+  - oauth2-auth: []
+  - oAuthClientCredentials: []
+  - certOauth: []
 tags: []
 securityDefinitions:
   oauth2-auth:
     type: oauth2
     flow: accessCode
     tokenUrl: https://login.windows.net/common/oauth2/authorize
-    scopes:
-      https://service.flow.microsoft.com//.default: https://service.flow.microsoft.com//.default
+    scopes: {}
     authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
   oAuthClientCredentials:
     type: oauth2
     flow: application
     tokenUrl: https://login.windows.net/common/oauth2/authorize
-    scopes:
-      https://service.flow.microsoft.com//.default: https://service.flow.microsoft.com//.default
+    scopes: {}
   certOauth:
     type: oauth2
     flow: application
     tokenUrl: https://login.windows.net/common/oauth2/authorize
-    scopes:
-      https://service.flow.microsoft.com//.default: https://service.flow.microsoft.com//.default
+    scopes: {}
