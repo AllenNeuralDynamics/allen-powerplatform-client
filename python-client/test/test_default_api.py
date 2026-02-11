@@ -61,6 +61,13 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
+    def test_update_water_restriction_status(self) -> None:
+        """Test case for update_water_restriction_status
+
+        Takes an HTTP request containing a mouse ID and an updated water restriction status. It retrieves relevant mouse and water restriction data, compares the old and new statuses, updates the record if needed, and logs any changes for audit purposes.
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

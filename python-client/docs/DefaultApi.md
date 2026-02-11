@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**post_baseline_weight**](DefaultApi.md#post_baseline_weight) | **POST** /powerautomate/automations/direct/workflows/1370544248f046bb879dc15abffb72a6/triggers/manual/paths/invoke | Posts a baseline weight for a mouse
 [**post_water_record**](DefaultApi.md#post_water_record) | **POST** /powerautomate/automations/direct/workflows/6148df039f724a4da146cc793585b8d2/triggers/manual/paths/invoke | Posts a water record from WaterLog into the dataverse weights water table
 [**post_weight_record**](DefaultApi.md#post_weight_record) | **POST** /powerautomate/automations/direct/workflows/4be33b76ba3843058033eeb4d82b5240/triggers/manual/paths/invoke | Posts a weight record from water log
+[**update_water_restriction_status**](DefaultApi.md#update_water_restriction_status) | **POST** /powerautomate/automations/direct/workflows/1c3c611c372246cd86d8597774beeafe/triggers/manual/paths/invoke | Takes an HTTP request containing a mouse ID and an updated water restriction status. It retrieves relevant mouse and water restriction data, compares the old and new statuses, updates the record if needed, and logs any changes for audit purposes.
 
 
 # **fetch_table_names**
@@ -424,6 +425,89 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | default |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_water_restriction_status**
+> object update_water_restriction_status(api_version=api_version, body=body)
+
+Takes an HTTP request containing a mouse ID and an updated water restriction status. It retrieves relevant mouse and water restriction data, compares the old and new statuses, updates the record if needed, and logs any changes for audit purposes.
+
+Once a mouse is in the Water Restriction table this flow retrieves relevant mouse and water restriction data, compares the old and new statuses, updates the record if needed, and logs any changes for audit purposes.
+
+### Example
+
+* OAuth Authentication (oauth2-auth):
+* OAuth Authentication (oAuthClientCredentials):
+* OAuth Authentication (certOauth):
+
+```python
+import allen_powerplatform_client
+from allen_powerplatform_client.models.update_water_restriction_status_request import UpdateWaterRestrictionStatusRequest
+from allen_powerplatform_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://8fd02505cbdee9558087f7d04a48a5.11.environment.api.powerplatform.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = allen_powerplatform_client.Configuration(
+    host = "https://8fd02505cbdee9558087f7d04a48a5.11.environment.api.powerplatform.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with allen_powerplatform_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = allen_powerplatform_client.DefaultApi(api_client)
+    api_version = 56 # int |  (optional)
+    body = allen_powerplatform_client.UpdateWaterRestrictionStatusRequest() # UpdateWaterRestrictionStatusRequest |  (optional)
+
+    try:
+        # Takes an HTTP request containing a mouse ID and an updated water restriction status. It retrieves relevant mouse and water restriction data, compares the old and new statuses, updates the record if needed, and logs any changes for audit purposes.
+        api_response = api_instance.update_water_restriction_status(api_version=api_version, body=body)
+        print("The response of DefaultApi->update_water_restriction_status:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->update_water_restriction_status: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_version** | **int**|  | [optional] 
+ **body** | [**UpdateWaterRestrictionStatusRequest**](UpdateWaterRestrictionStatusRequest.md)|  | [optional] 
+
+### Return type
+
+**object**
+
+### Authorization
+
+[oauth2-auth](../README.md#oauth2-auth), [oAuthClientCredentials](../README.md#oAuthClientCredentials), [certOauth](../README.md#certOauth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**0** | default |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

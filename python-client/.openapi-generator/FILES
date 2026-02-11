@@ -15,6 +15,7 @@ allen_powerplatform_client/models/get_table_request.py
 allen_powerplatform_client/models/post_baseline_weight_request.py
 allen_powerplatform_client/models/post_water_record_request.py
 allen_powerplatform_client/models/post_weight_record_request.py
+allen_powerplatform_client/models/update_water_restriction_status_request.py
 allen_powerplatform_client/py.typed
 allen_powerplatform_client/rest.py
 docs/DefaultApi.md
@@ -22,6 +23,7 @@ docs/GetTableRequest.md
 docs/PostBaselineWeightRequest.md
 docs/PostWaterRecordRequest.md
 docs/PostWeightRecordRequest.md
+docs/UpdateWaterRestrictionStatusRequest.md
 pyproject.toml
 requirements.txt
 setup.cfg
@@ -33,4 +35,5 @@ test/test_get_table_request.py
 test/test_post_baseline_weight_request.py
 test/test_post_water_record_request.py
 test/test_post_weight_record_request.py
+test/test_update_water_restriction_status_request.py
 tox.ini
