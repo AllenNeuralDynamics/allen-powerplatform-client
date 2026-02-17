@@ -154,6 +154,26 @@ paths:
                 type: string
                 description: Table name in Dataverse
                 title: table_name
+              columns:
+                type: string
+                description: Comma-separated column names to select from the table
+                title: columns
+              filter:
+                type: string
+                description: OData-style filter expression
+                title: filter
+              order_by:
+                type: string
+                description: NOT IMPLEMENTED - OData-style orderby expression
+                title: order_by
+              fetch_xml:
+                type: string
+                description: NOT IMPLEMENTED - Fetch XML query for advanced customization
+                title: fetch_xml
+              row_count:
+                type: integer
+                description: NOT IMPLEMENTED - Number of rows to return, default 2000
+                title: row_count
             required:
               - table_name
   /powerautomate/automations/direct/workflows/70452d9b21584637a8023e3d66fc37ea/triggers/manual/paths/invoke:
@@ -254,6 +274,33 @@ paths:
               updated_water_restriction_status:
                 type: string
                 description: updated_water_restriction_status
+  /powerautomate/automations/direct/workflows/f970e9425e6148aabdbb6a316802e92e/triggers/manual/paths/invoke:
+    post:
+      responses:
+        default:
+          description: default
+          schema: {}
+      summary: Updates the target weight percentage for a mouse
+      operationId: UpdateTargetWeightPercentage
+      description: Update the target weight percentage for a mouse
+      parameters:
+        - name: api-version
+          in: query
+          required: false
+          type: integer
+        - name: body
+          in: body
+          required: false
+          schema:
+            type: object
+            properties:
+              MouseGUID:
+                type: string
+                description: MouseGUID
+              updated_percent:
+                type: number
+                format: float
+                description: updated_percent
 definitions: {}
 parameters: {}
 responses: {}
