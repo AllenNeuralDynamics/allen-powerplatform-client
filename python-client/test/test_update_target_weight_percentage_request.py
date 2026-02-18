@@ -14,10 +14,10 @@
 
 import unittest
 
-from allen_powerplatform_client.models.get_table_request import GetTableRequest
+from allen_powerplatform_client.models.update_target_weight_percentage_request import UpdateTargetWeightPercentageRequest
 
-class TestGetTableRequest(unittest.TestCase):
-    """GetTableRequest unit test stubs"""
+class TestUpdateTargetWeightPercentageRequest(unittest.TestCase):
+    """UpdateTargetWeightPercentageRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,31 +25,26 @@ class TestGetTableRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> GetTableRequest:
-        """Test GetTableRequest
+    def make_instance(self, include_optional) -> UpdateTargetWeightPercentageRequest:
+        """Test UpdateTargetWeightPercentageRequest
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `GetTableRequest`
+        # uncomment below to create an instance of `UpdateTargetWeightPercentageRequest`
         """
-        model = GetTableRequest()
+        model = UpdateTargetWeightPercentageRequest()
         if include_optional:
-            return GetTableRequest(
-                table_name = '',
-                columns = '',
-                filter = '',
-                order_by = '',
-                fetch_xml = '',
-                row_count = 56
+            return UpdateTargetWeightPercentageRequest(
+                mouse_guid = '',
+                updated_percent = 1.337
             )
         else:
-            return GetTableRequest(
-                table_name = '',
+            return UpdateTargetWeightPercentageRequest(
         )
         """
 
-    def testGetTableRequest(self):
-        """Test GetTableRequest"""
+    def testUpdateTargetWeightPercentageRequest(self):
+        """Test UpdateTargetWeightPercentageRequest"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

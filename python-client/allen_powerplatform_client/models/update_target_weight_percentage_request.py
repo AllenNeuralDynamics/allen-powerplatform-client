@@ -17,22 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetTableRequest(BaseModel):
+class UpdateTargetWeightPercentageRequest(BaseModel):
     """
-    GetTableRequest
+    UpdateTargetWeightPercentageRequest
     """ # noqa: E501
-    table_name: StrictStr = Field(description="Table name in Dataverse")
-    columns: Optional[StrictStr] = Field(default=None, description="Comma-separated column names to select from the table")
-    filter: Optional[StrictStr] = Field(default=None, description="OData-style filter expression")
-    order_by: Optional[StrictStr] = Field(default=None, description="NOT IMPLEMENTED - OData-style orderby expression")
-    fetch_xml: Optional[StrictStr] = Field(default=None, description="NOT IMPLEMENTED - Fetch XML query for advanced customization")
-    row_count: Optional[StrictInt] = Field(default=None, description="NOT IMPLEMENTED - Number of rows to return, default 2000")
-    __properties: ClassVar[List[str]] = ["table_name", "columns", "filter", "order_by", "fetch_xml", "row_count"]
+    mouse_guid: Optional[StrictStr] = Field(default=None, description="MouseGUID", alias="MouseGUID")
+    updated_percent: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="updated_percent")
+    __properties: ClassVar[List[str]] = ["MouseGUID", "updated_percent"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -52,7 +48,7 @@ class GetTableRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetTableRequest from a JSON string"""
+        """Create an instance of UpdateTargetWeightPercentageRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -77,7 +73,7 @@ class GetTableRequest(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetTableRequest from a dict"""
+        """Create an instance of UpdateTargetWeightPercentageRequest from a dict"""
         if obj is None:
             return None
 
@@ -85,12 +81,8 @@ class GetTableRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "table_name": obj.get("table_name"),
-            "columns": obj.get("columns"),
-            "filter": obj.get("filter"),
-            "order_by": obj.get("order_by"),
-            "fetch_xml": obj.get("fetch_xml"),
-            "row_count": obj.get("row_count")
+            "MouseGUID": obj.get("MouseGUID"),
+            "updated_percent": obj.get("updated_percent")
         })
         return _obj
 

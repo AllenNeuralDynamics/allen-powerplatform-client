@@ -6,6 +6,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **table_name** | **str** | Table name in Dataverse | 
+**columns** | **str** | Comma-separated column names to select from the table | [optional] 
+**filter** | **str** | OData-style filter expression | [optional] 
+**order_by** | **str** | NOT IMPLEMENTED - OData-style orderby expression | [optional] 
+**fetch_xml** | **str** | NOT IMPLEMENTED - Fetch XML query for advanced customization | [optional] 
+**row_count** | **int** | NOT IMPLEMENTED - Number of rows to return, default 2000 | [optional] 
 
 ## Example
 

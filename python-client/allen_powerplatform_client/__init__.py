@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.3"
+__version__ = "0.1.4"
 
 # import apis into sdk package
 from allen_powerplatform_client.api.default_api import DefaultApi
@@ -35,4 +35,5 @@ from allen_powerplatform_client.models.get_table_request import GetTableRequest
 from allen_powerplatform_client.models.post_baseline_weight_request import PostBaselineWeightRequest
 from allen_powerplatform_client.models.post_water_record_request import PostWaterRecordRequest
 from allen_powerplatform_client.models.post_weight_record_request import PostWeightRecordRequest
+from allen_powerplatform_client.models.update_target_weight_percentage_request import UpdateTargetWeightPercentageRequest
 from allen_powerplatform_client.models.update_water_restriction_status_request import UpdateWaterRestrictionStatusRequest

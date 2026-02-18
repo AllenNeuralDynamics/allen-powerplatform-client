@@ -61,6 +61,13 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
+    def test_update_target_weight_percentage(self) -> None:
+        """Test case for update_target_weight_percentage
+
+        Updates the target weight percentage for a mouse
+        """
+        pass
+
     def test_update_water_restriction_status(self) -> None:
         """Test case for update_water_restriction_status
 
