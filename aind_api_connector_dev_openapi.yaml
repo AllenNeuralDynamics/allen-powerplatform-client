@@ -1,0 +1,436 @@
+swagger: '2.0'
+info:
+  title: Default title
+  description: >-
+    This custom connector is configured to interact with development environment
+    flows and is intended for use during active development, testing, and
+    validation.
+
+
+    It points to HTTP-triggered flows deployed in the development environment
+    and is updated frequently as APIs evolve. This connector may reference
+    non-final endpoints, in-progress schemas, and experimental logic.
+
+
+    Because development flow URLs are environment-specific and subject to
+    change, this connector should only be used in dev solution
+  version: '1.0'
+host: 8fd02505cbdee9558087f7d04a48a5.11.environment.api.powerplatform.com
+basePath: /
+schemes:
+  - https
+consumes: []
+produces: []
+paths:
+  /powerautomate/automations/direct/workflows/17331845e07744c3860334878028880d/triggers/manual/paths/invoke: {}
+  /powerautomate/automations/direct/workflows/162463486d584978bfd17a5dbd2ed223/triggers/manual/paths/invoke:
+    post:
+      responses:
+        default:
+          description: default
+          schema: {}
+      summary: Post Baseline Weight
+      description: Post the baseline weight for a mouse on water restriction
+      operationId: WaterRestriction-PostBaselineWeight
+      parameters:
+        - name: api-version
+          in: query
+          required: false
+          type: integer
+        - name: body
+          in: body
+          required: false
+          schema:
+            type: object
+            properties:
+              WaterRestrictionGUID:
+                type: string
+                description: WaterRestrictionGUID
+              baseline_weight:
+                type: number
+                format: float
+                description: baseline_weight
+  /powerautomate/automations/direct/workflows/1c3c611c372246cd86d8597774beeafe/triggers/manual/paths/invoke:
+    post:
+      responses:
+        default:
+          description: default
+          schema: {}
+      operationId: WaterRestriction-UpdateRestrictionStatus
+      summary: Update Water Restriction Status
+      description: Update water restriction status for mouse in water restricted mice table
+      parameters:
+        - name: api-version
+          in: query
+          required: false
+          type: integer
+        - name: body
+          in: body
+          required: false
+          schema:
+            type: object
+            properties:
+              water_restriction_guid:
+                type: string
+                description: water_restriction_guid
+              updated_water_restriction_status:
+                type: string
+                description: updated_water_restriction_status
+  /powerautomate/automations/direct/workflows/f970e9425e6148aabdbb6a316802e92e/triggers/manual/paths/invoke:
+    post:
+      responses:
+        default:
+          description: default
+          schema: {}
+      operationId: WaterRestriction-UpdateTargetWeightPercent
+      summary: Update Target Weight Percent
+      description: Update the target weight percent for a water restricted mouse
+      parameters:
+        - name: api-version
+          in: query
+          required: false
+          type: integer
+        - name: body
+          in: body
+          required: false
+          schema:
+            type: object
+            properties:
+              WaterRestrictionGUID:
+                type: string
+                description: WaterRestrictionGUID
+              updated_percent:
+                type: number
+                format: float
+                description: updated_percent
+  /powerautomate/automations/direct/workflows/00ebb4b476e84e999d10d1034cf13492/triggers/manual/paths/invoke:
+    delete:
+      responses:
+        default:
+          description: default
+          schema: {}
+      operationId: WaterRestriction-PostWeightAndWaterRecords
+      summary: Post Weight and Water Record
+      parameters:
+        - name: api-version
+          in: query
+          required: false
+          type: integer
+        - name: body
+          in: body
+          required: false
+          schema:
+            type: object
+            properties:
+              date_time:
+                type: string
+                description: date_time
+              mouse_ID:
+                type: string
+                description: mouse_ID
+              mouse_GUID:
+                type: string
+                description: mouse_GUID
+              water_restriction_GUID:
+                type: string
+                description: water_restriction_GUID
+              team_GUID:
+                type: string
+                description: team_GUID
+              operator_userGUID:
+                type: string
+                description: operator_userGUID
+              water_total:
+                type: number
+                format: float
+                description: water_total
+              water_supplemental_provided:
+                type: number
+                format: float
+                description: water_supplemental_provided
+              water_supplemental_recommended:
+                type: number
+                format: float
+                description: water_supplemental_recommended
+              water_task:
+                type: integer
+                format: int32
+                description: water_task
+              weight:
+                type: number
+                format: float
+                description: weight
+              is_baseline_weight:
+                type: boolean
+                description: is_baseline_weight
+              notes:
+                type: string
+                description: notes
+              software_source:
+                type: string
+                description: software_source
+              workstation:
+                type: string
+                description: workstation
+              software_version:
+                type: string
+                description: software_version
+      description: Post paired weight and water records for a water restricted mouse
+  /powerautomate/automations/direct/workflows/7d8cc42d4198490f82d60659142cb848/triggers/manual/paths/invoke:
+    post:
+      responses:
+        default:
+          description: default
+          schema: {}
+      operationId: PostMouseWeightRecord
+      summary: Post Weight Record
+      description: post a weight record for a mouse
+      parameters:
+        - name: api-version
+          in: query
+          required: false
+          type: integer
+        - name: body
+          in: body
+          required: false
+          schema:
+            type: object
+            properties:
+              mouse_ID:
+                type: string
+                description: mouse_ID
+              mouse_GUID:
+                type: string
+                description: mouse_GUID
+              weight:
+                type: number
+                format: float
+                description: weight
+              is_baseline_weight:
+                type: boolean
+                description: is_baseline_weight
+              date_time:
+                type: string
+                description: date_time
+              operator_userGUID:
+                type: string
+                description: operator_userGUID
+              notes:
+                type: string
+                description: notes
+              workstation:
+                type: string
+                description: workstation
+              software_source:
+                type: string
+                description: software_source
+              software_version:
+                type: string
+                description: software_version
+  /powerautomate/automations/direct/workflows/0438716ee92b4378811dbc975401decd/triggers/manual/paths/invoke:
+    post:
+      responses:
+        default:
+          description: default
+          schema: {}
+      operationId: GetTableData
+      summary: Get Table Data
+      description: Gets all data for a table
+      parameters:
+        - name: api-version
+          in: query
+          required: false
+          type: integer
+        - name: body
+          in: body
+          required: false
+          schema:
+            type: object
+            properties:
+              table_name:
+                type: string
+                description: table_name
+              columns:
+                type: string
+                description: columns
+              filter:
+                type: string
+                description: filter
+              order_by:
+                type: string
+                description: order_by
+              fetch_xml:
+                type: string
+                description: fetch_xml
+              row_count:
+                type: integer
+                format: int32
+                description: row_count
+  /powerautomate/automations/direct/workflows/70452d9b21584637a8023e3d66fc37ea/triggers/manual/paths/invoke:
+    post:
+      responses:
+        default:
+          description: default
+          schema: {}
+      operationId: GetTableNames
+      summary: Get Table Name
+      description: Gets all dataverse table names
+      parameters:
+        - name: api-version
+          in: query
+          required: false
+          type: integer
+        - name: body
+          in: body
+          required: false
+          schema:
+            type: object
+            properties: {}
+  /powerautomate/automations/direct/workflows/d29134243d37405989d740693cf74eab/triggers/manual/paths/invoke:
+    post:
+      responses:
+        default:
+          description: default
+          schema: {}
+      operationId: ValidateMouseInWaterRestrictedMiceTable
+      summary: Validate Mouse Active in Water Restriction, Return Data
+      description: Validate mouse in water restriction, return data
+      parameters:
+        - name: api-version
+          in: query
+          required: false
+          type: integer
+        - name: body
+          in: body
+          required: false
+          schema:
+            type: object
+            properties:
+              mouse_GUID:
+                type: string
+                description: mouse_GUID
+              mouse_ID:
+                type: string
+                description: mouse_ID
+  /powerautomate/automations/direct/workflows/2aca0c8f806f4403a57c9ebdb44ecc2f/triggers/manual/paths/invoke:
+    post:
+      responses:
+        default:
+          description: default
+          schema: {}
+      operationId: ValidateMouseIDInMouseRegistry
+      summary: Validate Mouse ID in Mouse Registry
+      description: >-
+        validate a mouse id (6 digit labtracks ID) is in the mouse registry,
+        return data
+      parameters:
+        - name: api-version
+          in: query
+          required: false
+          type: integer
+        - name: body
+          in: body
+          required: false
+          schema:
+            type: object
+            properties:
+              mouse_ID:
+                type: string
+                description: mouse_ID
+  /powerautomate/automations/direct/workflows/fd45230267514933bd9e79a37e207e58/triggers/manual/paths/invoke:
+    post:
+      responses:
+        default:
+          description: default
+          schema: {}
+      operationId: ValidateEmailInSystemUsers
+      summary: Validate Email in Users Table, Return Data
+      description: validate email in system users table, return data
+      parameters:
+        - name: api-version
+          in: query
+          required: false
+          type: integer
+        - name: body
+          in: body
+          required: false
+          schema:
+            type: object
+            properties:
+              email_address:
+                type: string
+                description: email_address
+  /powerautomate/automations/direct/workflows/33e400168f5142fc84e2edcf85739dc4/triggers/manual/paths/invoke:
+    post:
+      responses:
+        default:
+          description: default
+          schema: {}
+      operationId: ValidateMouseGUIDInMouseRegistry
+      summary: validate mouseGUID in Mouse Registry, return data
+      description: validate mouseGUID in Mouse Registry, return data
+      parameters:
+        - name: api-version
+          in: query
+          required: false
+          type: integer
+        - name: body
+          in: body
+          required: false
+          schema:
+            type: object
+            properties:
+              mouse_GUID:
+                type: string
+                description: mouse_GUID
+  /powerautomate/automations/direct/workflows/51d8892464a94b0690310a88d2c6ebd8/triggers/manual/paths/invoke:
+    post:
+      responses:
+        default:
+          description: default
+          schema: {}
+      operationId: ValidateMouseInBehaviorTraining
+      summary: validate mouse in Behavior Training, return data
+      description: validate mouse in Behavior Training, return data
+      parameters:
+        - name: api-version
+          in: query
+          required: false
+          type: integer
+        - name: body
+          in: body
+          required: false
+          schema:
+            type: object
+            properties:
+              mouse_GUID:
+                type: string
+                description: mouse_GUID
+              mouse_ID:
+                type: string
+                description: mouse_ID
+definitions: {}
+parameters: {}
+responses: {}
+security:
+  - oauth2-auth: []
+  - oAuthClientCredentials: []
+  - certOauth: []
+tags: []
+securityDefinitions:
+  oauth2-auth:
+    type: oauth2
+    flow: accessCode
+    tokenUrl: https://login.windows.net/common/oauth2/authorize
+    scopes: {}
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+  oAuthClientCredentials:
+    type: oauth2
+    flow: application
+    tokenUrl: https://login.windows.net/common/oauth2/authorize
+    scopes: {}
+  certOauth:
+    type: oauth2
+    flow: application
+    tokenUrl: https://login.windows.net/common/oauth2/authorize
+    scopes: {}
