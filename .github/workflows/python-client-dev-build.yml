@@ -1,0 +1,48 @@
+name: allen-powerplatform-client Dev client build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - aind_api_connector_dev_openapi.yaml
+      - openapirc_python_client.json
+      - .openapi-generator-ignore
+
+permissions:
+  contents: write
+
+jobs:
+  build_dev_client:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          token: ${{ secrets.SERVICE_TOKEN }}
+
+      - name: Pull latest changes
+        run: git pull origin main
+
+      - name: Remove previous dev client
+        run: rm -rf clients/dev
+
+      - name: Generate dev python client
+        uses: openapi-generators/openapitools-generator-action@v1.5.0
+        with:
+          generator: python
+          generator-tag: v7.13.0
+          openapi-file: aind_api_connector_dev_openapi.yaml
+          config-file: openapirc_python_client.json
+          command-args: >
+            --output clients/dev
+            --ignore-file-override .openapi-generator-ignore
+
+      - name: Commit dev client to main
+        uses: EndBug/add-and-commit@v9
+        with:
+          default_author: github_actions
+          message: "ci: regenerate dev client [skip actions]"
+          add: '["clients/dev"]'
