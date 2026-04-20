@@ -7,8 +7,6 @@ on:
       - main
     paths:
       - aind_api_connector_dev_openapi.yaml
-      - openapirc_python_client.json
-      - .openapi-generator-ignore
 
 permissions:
   contents: write
@@ -27,7 +25,7 @@ jobs:
         run: git pull origin main
 
       - name: Remove previous dev client
-        run: rm -rf clients/dev
+        run: rm -rf clients/python-client-dev
 
       - name: Generate dev python client
         uses: openapi-generators/openapitools-generator-action@v1.5.0
@@ -37,7 +35,7 @@ jobs:
           openapi-file: aind_api_connector_dev_openapi.yaml
           config-file: openapirc_python_client.json
           command-args: >
-            --output clients/dev
+            --output clients/python-client-dev
             --ignore-file-override .openapi-generator-ignore
 
       - name: Commit dev client to main
@@ -45,4 +43,4 @@ jobs:
         with:
           default_author: github_actions
           message: "ci: regenerate dev client [skip actions]"
-          add: '["clients/dev"]'
+          add: '["clients/python-client-dev"]'

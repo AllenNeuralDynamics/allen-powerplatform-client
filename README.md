@@ -4,7 +4,7 @@ A Python client library for triggering PowerAutomate workflows. The client is au
 
 This repo maintains two environments:
 - **prod** — published to PyPI, generated from `aind_api_connector_prod_openapi.yaml`
-- **dev** — committed to `clients/dev/` on main, installable directly from GitHub
+- **dev** — committed to `clients/python-client-dev/` on main, installable directly from GitHub
 
 ## Installation
 
@@ -13,7 +13,7 @@ This repo maintains two environments:
 pip install allen-powerplatform-client
 
 # dev (from this repo)
-pip install "git+https://github.com/AllenNeuralDynamics/allen-powerplatform-client@main#subdirectory=clients/dev"
+pip install "git+https://github.com/AllenNeuralDynamics/allen-powerplatform-client@main#subdirectory=clients/python-client-dev"
 ```
 
 ## Basic Usage
@@ -114,3 +114,4 @@ docker run --rm -v "$(pwd)":/local openapitools/openapi-generator-cli generate \
   -o /local/clients/dev -c /local/openapirc_python_client.json \
   --ignore-file-override /local/.openapi-generator-ignore
 ```
+
