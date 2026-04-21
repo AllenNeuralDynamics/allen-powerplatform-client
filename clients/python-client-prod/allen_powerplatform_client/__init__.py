@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.5"
+__version__ = "0.1.6"
 
 # import apis into sdk package
 from allen_powerplatform_client.api.default_api import DefaultApi
