@@ -1,11 +1,11 @@
-name: allen-powerplatform-client Python package
+name: Run prod client tests
 
 on:
   pull_request:
     branches:
       - main
     paths:
-      - python-client/**
+      - clients/python-client-prod/**
 
 permissions:
   contents: read
@@ -18,7 +18,7 @@ jobs:
         python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
     defaults:
       run:
-        working-directory: ./python-client
+        working-directory: ./clients/python-client-prod
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python ${{ matrix.python-version }}
@@ -32,4 +32,4 @@ jobs:
           pip install -r test-requirements.txt
       - name: Test with pytest
         run: |
-          pytest --cov=allen-powerplatform-client
+          pytest --cov=allen_powerplatform_client

@@ -11,6 +11,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: main-write-${{ github.repository }}
+  cancel-in-progress: false
+
 jobs:
   build_dev_client:
     runs-on: ubuntu-latest
@@ -44,3 +48,4 @@ jobs:
           default_author: github_actions
           message: "ci: regenerate dev client [skip actions]"
           add: '["clients/python-client-dev"]'
+          pull: '--rebase --autostash'
