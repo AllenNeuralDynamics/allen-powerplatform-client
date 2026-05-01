@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "allen_powerplatform_client"
-version = "0.1.6"
+version = "0.1.7"
 description = "Default title"
 authors = ["OpenAPI Generator Community <team@openapitools.org>"]
 license = "NoLicense"
