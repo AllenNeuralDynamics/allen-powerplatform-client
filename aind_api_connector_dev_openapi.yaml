@@ -19,8 +19,10 @@ host: 8fd02505cbdee9558087f7d04a48a5.11.environment.api.powerplatform.com
 basePath: /
 schemes:
   - https
-consumes: []
-produces: []
+consumes:
+  - application/json
+produces:
+  - application/json
 paths:
   /powerautomate/automations/direct/workflows/17331845e07744c3860334878028880d/triggers/manual/paths/invoke: {}
   /powerautomate/automations/direct/workflows/162463486d584978bfd17a5dbd2ed223/triggers/manual/paths/invoke:
