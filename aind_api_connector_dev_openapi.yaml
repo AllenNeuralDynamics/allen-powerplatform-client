@@ -232,9 +232,11 @@ paths:
   /powerautomate/automations/direct/workflows/0438716ee92b4378811dbc975401decd/triggers/manual/paths/invoke:
     post:
       responses:
-        default:
+        '200':
           description: default
-          schema: {}
+          schema:
+            type: object
+            properties: {}
       operationId: GetTableData
       summary: Get Table Data
       description: Gets all data for a table
@@ -271,9 +273,11 @@ paths:
   /powerautomate/automations/direct/workflows/70452d9b21584637a8023e3d66fc37ea/triggers/manual/paths/invoke:
     post:
       responses:
-        default:
+        '200':
           description: default
-          schema: {}
+          schema:
+            type: object
+            properties: {}
       operationId: GetTableNames
       summary: Get Table Name
       description: Gets all dataverse table names
