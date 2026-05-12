@@ -28,6 +28,7 @@ paths:
           in: query
           required: false
           type: integer
+          default: 1
         - name: body
           in: body
           required: false
@@ -92,8 +93,8 @@ paths:
                 format: float
                 description: water_supplemental_recommended
               water_task:
-                type: integer
-                format: int32
+                type: number
+                format: float
                 description: water_task
               weight:
                 type: number
@@ -288,7 +289,76 @@ paths:
       responses:
         default:
           description: default
-          schema: {}
+          schema:
+            type: object
+            properties:
+              status_code:
+                type: integer
+                format: int32
+                description: status_code
+              status_message:
+                type: string
+                description: status_message
+              waterrestrictionguid:
+                type: string
+                description: waterrestrictionguid
+              activerecord:
+                type: boolean
+                description: activerecord
+              mouseguid:
+                type: string
+                description: mouseguid
+              mouseid:
+                type: string
+                description: mouseid
+              baseline_weight:
+                type: number
+                format: float
+                description: baseline_weight
+              target_weight_percentage:
+                type: number
+                format: float
+                description: target_weight_percentage
+              target_weight:
+                type: number
+                format: float
+                description: target_weight
+              low_weight_threshold:
+                type: number
+                format: float
+                description: low_weight_threshold
+              team_guid:
+                type: string
+                description: team_guid
+              team_name:
+                type: string
+                description: team_name
+              behavior_training_guid:
+                type: string
+                description: behavior_training_guid
+              watering_shift_value:
+                type: integer
+                format: int32
+                description: watering_shift_value
+              watering_shift_label:
+                type: string
+                description: watering_shift_label
+              water_restriction_status_value:
+                type: integer
+                format: int32
+                description: water_restriction_status_value
+              water_restriction_status_label:
+                type: string
+                description: water_restriction_status_label
+              watered_today:
+                type: boolean
+                description: watered_today
+              last_watered_datetime:
+                type: string
+                description: last_watered_datetime
+              record_name:
+                type: string
+                description: record_name
       operationId: ValidateMouseInWaterRestrictedMiceTable
       summary: Validate Mouse in Water Restricted Mice table
       description: >-
@@ -316,7 +386,52 @@ paths:
       responses:
         default:
           description: default
-          schema: {}
+          schema:
+            type: object
+            properties:
+              StatusCode:
+                type: integer
+                format: int32
+                description: StatusCode
+              StatusMessage:
+                type: string
+                description: StatusMessage
+              MouseGUID:
+                type: string
+                description: MouseGUID
+              MouseID:
+                type: string
+                description: MouseID
+              Sex:
+                type: string
+                description: Sex
+              DateOfBirth:
+                type: string
+                description: DateOfBirth
+              DateOfDeath:
+                type: string
+                description: DateOfDeath
+              Deceased:
+                type: string
+                description: Deceased
+              ReverseLightCycle:
+                type: string
+                description: ReverseLightCycle
+              ProjectGUID:
+                type: string
+                description: ProjectGUID
+              ProjectName:
+                type: string
+                description: ProjectName
+              IACUC GUID:
+                type: string
+                description: IACUC GUID
+              IACUCProtocol:
+                type: string
+                description: IACUCProtocol
+              Genotype:
+                type: string
+                description: Genotype
       operationId: ValidateMouseIDInMouseRegistry
       summary: Validate Mouse ID in Mouse Registry
       description: >-
@@ -341,10 +456,28 @@ paths:
       responses:
         default:
           description: default
-          schema: {}
-      summary: Validate Email in Users Table
-      operationId: ValidateEmailInSystemUsers
-      description: Validate that email is in users (system users) table, return data
+          schema:
+            type: object
+            properties:
+              status_code:
+                type: integer
+                format: int32
+                description: status_code
+              status_message:
+                type: string
+                description: status_message
+              user_guid:
+                type: string
+                description: user_guid
+              full_name:
+                type: string
+                description: full_name
+              email_address:
+                type: string
+                description: email_address
+      summary: Validate email address in Users table, return data
+      description: Validate email address in Users table, return data
+      operationId: ValidateEmailInUsersReturnData
       parameters:
         - name: api-version
           in: query
@@ -364,7 +497,52 @@ paths:
       responses:
         default:
           description: default
-          schema: {}
+          schema:
+            type: object
+            properties:
+              StatusCode:
+                type: integer
+                format: int32
+                description: StatusCode
+              StatusMessage:
+                type: string
+                description: StatusMessage
+              MouseGUID:
+                type: string
+                description: MouseGUID
+              MouseID:
+                type: string
+                description: MouseID
+              Sex:
+                type: string
+                description: Sex
+              DateOfBirth:
+                type: string
+                description: DateOfBirth
+              DateOfDeath:
+                type: string
+                description: DateOfDeath
+              Deceased:
+                type: boolean
+                description: Deceased
+              ReverseLightCycle:
+                type: boolean
+                description: ReverseLightCycle
+              ProjectGUID:
+                type: string
+                description: ProjectGUID
+              ProjectName:
+                type: string
+                description: ProjectName
+              IACUC GUID:
+                type: string
+                description: IACUC GUID
+              IACUCProtocol:
+                type: string
+                description: IACUCProtocol
+              Genotype:
+                type: string
+                description: Genotype
       operationId: ValidateMouseGUIDInMouseRegistry
       summary: Validate Mouse GUID in Mouse Registry
       description: Validate mouse GUID in mouse registry table, return data
@@ -387,7 +565,77 @@ paths:
       responses:
         default:
           description: default
-          schema: {}
+          schema:
+            type: object
+            properties:
+              status_code:
+                type: integer
+                format: int32
+                description: status_code
+              status_message:
+                type: string
+                description: status_message
+              behavior_training_guid:
+                type: string
+                description: behavior_training_guid
+              active_record:
+                type: boolean
+                description: active_record
+              mouse_guid:
+                type: string
+                description: mouse_guid
+              mouse_id:
+                type: string
+                description: mouse_id
+              project_guid:
+                type: string
+                description: project_guid
+              project_name:
+                type: string
+                description: project_name
+              project_code:
+                type: string
+                description: project_code
+              training_protocol:
+                type: string
+                description: training_protocol
+              mouse_assignment_status_choice_value:
+                type: integer
+                format: int32
+                description: mouse_assignment_status_choice_value
+              mouse_assignment_status_choice_label:
+                type: string
+                description: mouse_assignment_status_choice_label
+              assigned_trainer_userguid:
+                type: string
+                description: assigned_trainer_userguid
+              assigned_trainer_name:
+                type: string
+                description: assigned_trainer_name
+              assigned_trainer_email:
+                type: string
+                description: assigned_trainer_email
+              backup_trainer_userguid:
+                type: string
+                description: backup_trainer_userguid
+              backup_trainer_name:
+                type: string
+                description: backup_trainer_name
+              backup_trainer_email:
+                type: string
+                description: backup_trainer_email
+              scientific_contact_userguid:
+                type: string
+                description: scientific_contact_userguid
+              scientific_contact_name:
+                type: string
+                description: scientific_contact_name
+              scientific_contact_email:
+                type: string
+                description: scientific_contact_email
+              water_restriction_guid:
+                type: string
+                description: water_restriction_guid
       operationId: ValidateMouseInBehaviorTraining
       summary: Validate mouse in behavior training table
       description: Validate mouse in behavior training team table, return data
