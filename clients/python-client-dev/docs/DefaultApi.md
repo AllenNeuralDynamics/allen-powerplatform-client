@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**validate_mouse_in_behavior_training**](DefaultApi.md#validate_mouse_in_behavior_training) | **POST** /powerautomate/automations/direct/workflows/51d8892464a94b0690310a88d2c6ebd8/triggers/manual/paths/invoke | validate mouse in Behavior Training, return data
 [**validate_mouse_in_water_restricted_mice_table**](DefaultApi.md#validate_mouse_in_water_restricted_mice_table) | **POST** /powerautomate/automations/direct/workflows/d29134243d37405989d740693cf74eab/triggers/manual/paths/invoke | Validate Mouse Active in Water Restriction, Return Data
 [**water_restriction_post_baseline_weight**](DefaultApi.md#water_restriction_post_baseline_weight) | **POST** /powerautomate/automations/direct/workflows/162463486d584978bfd17a5dbd2ed223/triggers/manual/paths/invoke | Post Baseline Weight
-[**water_restriction_post_weight_and_water_records**](DefaultApi.md#water_restriction_post_weight_and_water_records) | **DELETE** /powerautomate/automations/direct/workflows/00ebb4b476e84e999d10d1034cf13492/triggers/manual/paths/invoke | Post Weight and Water Record
+[**water_restriction_post_weight_and_water_records**](DefaultApi.md#water_restriction_post_weight_and_water_records) | **POST** /powerautomate/automations/direct/workflows/00ebb4b476e84e999d10d1034cf13492/triggers/manual/paths/invoke | Post Weight and Water Record
 [**water_restriction_update_restriction_status**](DefaultApi.md#water_restriction_update_restriction_status) | **POST** /powerautomate/automations/direct/workflows/1c3c611c372246cd86d8597774beeafe/triggers/manual/paths/invoke | Update Water Restriction Status
 [**water_restriction_update_target_weight_percent**](DefaultApi.md#water_restriction_update_target_weight_percent) | **POST** /powerautomate/automations/direct/workflows/f970e9425e6148aabdbb6a316802e92e/triggers/manual/paths/invoke | Update Target Weight Percent
 
@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **validate_email_in_system_users**
-> object validate_email_in_system_users(api_version=api_version, body=body)
+> ValidateEmailInSystemUsersDefaultResponse validate_email_in_system_users(api_version=api_version, body=body)
 
 Validate Email in Users Table, Return Data
 
@@ -281,6 +281,7 @@ validate email in system users table, return data
 
 ```python
 import allen_powerplatform_client
+from allen_powerplatform_client.models.validate_email_in_system_users_default_response import ValidateEmailInSystemUsersDefaultResponse
 from allen_powerplatform_client.models.validate_email_in_system_users_request import ValidateEmailInSystemUsersRequest
 from allen_powerplatform_client.rest import ApiException
 from pprint import pprint
@@ -330,7 +331,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**ValidateEmailInSystemUsersDefaultResponse**](ValidateEmailInSystemUsersDefaultResponse.md)
 
 ### Authorization
 
@@ -350,7 +351,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **validate_mouse_guidin_mouse_registry**
-> object validate_mouse_guidin_mouse_registry(api_version=api_version, body=body)
+> ValidateMouseGUIDInMouseRegistryDefaultResponse validate_mouse_guidin_mouse_registry(api_version=api_version, body=body)
 
 validate mouseGUID in Mouse Registry, return data
 
@@ -364,6 +365,7 @@ validate mouseGUID in Mouse Registry, return data
 
 ```python
 import allen_powerplatform_client
+from allen_powerplatform_client.models.validate_mouse_guidin_mouse_registry_default_response import ValidateMouseGUIDInMouseRegistryDefaultResponse
 from allen_powerplatform_client.models.validate_mouse_guidin_mouse_registry_request import ValidateMouseGUIDInMouseRegistryRequest
 from allen_powerplatform_client.rest import ApiException
 from pprint import pprint
@@ -413,7 +415,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**ValidateMouseGUIDInMouseRegistryDefaultResponse**](ValidateMouseGUIDInMouseRegistryDefaultResponse.md)
 
 ### Authorization
 
@@ -433,7 +435,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **validate_mouse_idin_mouse_registry**
-> object validate_mouse_idin_mouse_registry(api_version=api_version, body=body)
+> ValidateMouseIDInMouseRegistryDefaultResponse validate_mouse_idin_mouse_registry(api_version=api_version, body=body)
 
 Validate Mouse ID in Mouse Registry
 
@@ -447,6 +449,7 @@ validate a mouse id (6 digit labtracks ID) is in the mouse registry, return data
 
 ```python
 import allen_powerplatform_client
+from allen_powerplatform_client.models.validate_mouse_idin_mouse_registry_default_response import ValidateMouseIDInMouseRegistryDefaultResponse
 from allen_powerplatform_client.models.validate_mouse_idin_mouse_registry_request import ValidateMouseIDInMouseRegistryRequest
 from allen_powerplatform_client.rest import ApiException
 from pprint import pprint
@@ -496,7 +499,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**ValidateMouseIDInMouseRegistryDefaultResponse**](ValidateMouseIDInMouseRegistryDefaultResponse.md)
 
 ### Authorization
 
@@ -516,7 +519,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **validate_mouse_in_behavior_training**
-> object validate_mouse_in_behavior_training(api_version=api_version, body=body)
+> ValidateMouseInBehaviorTrainingDefaultResponse validate_mouse_in_behavior_training(api_version=api_version, body=body)
 
 validate mouse in Behavior Training, return data
 
@@ -530,6 +533,7 @@ validate mouse in Behavior Training, return data
 
 ```python
 import allen_powerplatform_client
+from allen_powerplatform_client.models.validate_mouse_in_behavior_training_default_response import ValidateMouseInBehaviorTrainingDefaultResponse
 from allen_powerplatform_client.models.validate_mouse_in_water_restricted_mice_table_request import ValidateMouseInWaterRestrictedMiceTableRequest
 from allen_powerplatform_client.rest import ApiException
 from pprint import pprint
@@ -579,7 +583,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**ValidateMouseInBehaviorTrainingDefaultResponse**](ValidateMouseInBehaviorTrainingDefaultResponse.md)
 
 ### Authorization
 
@@ -599,7 +603,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **validate_mouse_in_water_restricted_mice_table**
-> object validate_mouse_in_water_restricted_mice_table(api_version=api_version, body=body)
+> ValidateMouseInWaterRestrictedMiceTableDefaultResponse validate_mouse_in_water_restricted_mice_table(api_version=api_version, body=body)
 
 Validate Mouse Active in Water Restriction, Return Data
 
@@ -613,6 +617,7 @@ Validate mouse in water restriction, return data
 
 ```python
 import allen_powerplatform_client
+from allen_powerplatform_client.models.validate_mouse_in_water_restricted_mice_table_default_response import ValidateMouseInWaterRestrictedMiceTableDefaultResponse
 from allen_powerplatform_client.models.validate_mouse_in_water_restricted_mice_table_request import ValidateMouseInWaterRestrictedMiceTableRequest
 from allen_powerplatform_client.rest import ApiException
 from pprint import pprint
@@ -662,7 +667,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**ValidateMouseInWaterRestrictedMiceTableDefaultResponse**](ValidateMouseInWaterRestrictedMiceTableDefaultResponse.md)
 
 ### Authorization
 
@@ -765,7 +770,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **water_restriction_post_weight_and_water_records**
-> object water_restriction_post_weight_and_water_records(api_version=api_version, body=body)
+> WaterRestrictionPostWeightAndWaterRecordsDefaultResponse water_restriction_post_weight_and_water_records(api_version=api_version, body=body)
 
 Post Weight and Water Record
 
@@ -779,6 +784,7 @@ Post paired weight and water records for a water restricted mouse
 
 ```python
 import allen_powerplatform_client
+from allen_powerplatform_client.models.water_restriction_post_weight_and_water_records_default_response import WaterRestrictionPostWeightAndWaterRecordsDefaultResponse
 from allen_powerplatform_client.models.water_restriction_post_weight_and_water_records_request import WaterRestrictionPostWeightAndWaterRecordsRequest
 from allen_powerplatform_client.rest import ApiException
 from pprint import pprint
@@ -828,7 +834,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**WaterRestrictionPostWeightAndWaterRecordsDefaultResponse**](WaterRestrictionPostWeightAndWaterRecordsDefaultResponse.md)
 
 ### Authorization
 

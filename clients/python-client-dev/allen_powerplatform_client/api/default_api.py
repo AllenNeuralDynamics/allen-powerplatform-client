@@ -20,11 +20,17 @@ from pydantic import StrictInt
 from typing import Any, Dict, Optional
 from allen_powerplatform_client.models.get_table_data_request import GetTableDataRequest
 from allen_powerplatform_client.models.post_mouse_weight_record_request import PostMouseWeightRecordRequest
+from allen_powerplatform_client.models.validate_email_in_system_users_default_response import ValidateEmailInSystemUsersDefaultResponse
 from allen_powerplatform_client.models.validate_email_in_system_users_request import ValidateEmailInSystemUsersRequest
+from allen_powerplatform_client.models.validate_mouse_guidin_mouse_registry_default_response import ValidateMouseGUIDInMouseRegistryDefaultResponse
 from allen_powerplatform_client.models.validate_mouse_guidin_mouse_registry_request import ValidateMouseGUIDInMouseRegistryRequest
+from allen_powerplatform_client.models.validate_mouse_idin_mouse_registry_default_response import ValidateMouseIDInMouseRegistryDefaultResponse
 from allen_powerplatform_client.models.validate_mouse_idin_mouse_registry_request import ValidateMouseIDInMouseRegistryRequest
+from allen_powerplatform_client.models.validate_mouse_in_behavior_training_default_response import ValidateMouseInBehaviorTrainingDefaultResponse
+from allen_powerplatform_client.models.validate_mouse_in_water_restricted_mice_table_default_response import ValidateMouseInWaterRestrictedMiceTableDefaultResponse
 from allen_powerplatform_client.models.validate_mouse_in_water_restricted_mice_table_request import ValidateMouseInWaterRestrictedMiceTableRequest
 from allen_powerplatform_client.models.water_restriction_post_baseline_weight_request import WaterRestrictionPostBaselineWeightRequest
+from allen_powerplatform_client.models.water_restriction_post_weight_and_water_records_default_response import WaterRestrictionPostWeightAndWaterRecordsDefaultResponse
 from allen_powerplatform_client.models.water_restriction_post_weight_and_water_records_request import WaterRestrictionPostWeightAndWaterRecordsRequest
 from allen_powerplatform_client.models.water_restriction_update_restriction_status_request import WaterRestrictionUpdateRestrictionStatusRequest
 from allen_powerplatform_client.models.water_restriction_update_target_weight_percent_request import WaterRestrictionUpdateTargetWeightPercentRequest
@@ -940,7 +946,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> ValidateEmailInSystemUsersDefaultResponse:
         """Validate Email in Users Table, Return Data
 
         validate email in system users table, return data
@@ -1010,7 +1016,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[ValidateEmailInSystemUsersDefaultResponse]:
         """Validate Email in Users Table, Return Data
 
         validate email in system users table, return data
@@ -1230,7 +1236,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> ValidateMouseGUIDInMouseRegistryDefaultResponse:
         """validate mouseGUID in Mouse Registry, return data
 
         validate mouseGUID in Mouse Registry, return data
@@ -1300,7 +1306,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[ValidateMouseGUIDInMouseRegistryDefaultResponse]:
         """validate mouseGUID in Mouse Registry, return data
 
         validate mouseGUID in Mouse Registry, return data
@@ -1520,7 +1526,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> ValidateMouseIDInMouseRegistryDefaultResponse:
         """Validate Mouse ID in Mouse Registry
 
         validate a mouse id (6 digit labtracks ID) is in the mouse registry, return data
@@ -1590,7 +1596,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[ValidateMouseIDInMouseRegistryDefaultResponse]:
         """Validate Mouse ID in Mouse Registry
 
         validate a mouse id (6 digit labtracks ID) is in the mouse registry, return data
@@ -1810,7 +1816,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> ValidateMouseInBehaviorTrainingDefaultResponse:
         """validate mouse in Behavior Training, return data
 
         validate mouse in Behavior Training, return data
@@ -1880,7 +1886,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[ValidateMouseInBehaviorTrainingDefaultResponse]:
         """validate mouse in Behavior Training, return data
 
         validate mouse in Behavior Training, return data
@@ -2100,7 +2106,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> ValidateMouseInWaterRestrictedMiceTableDefaultResponse:
         """Validate Mouse Active in Water Restriction, Return Data
 
         Validate mouse in water restriction, return data
@@ -2170,7 +2176,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[ValidateMouseInWaterRestrictedMiceTableDefaultResponse]:
         """Validate Mouse Active in Water Restriction, Return Data
 
         Validate mouse in water restriction, return data
@@ -2680,7 +2686,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> WaterRestrictionPostWeightAndWaterRecordsDefaultResponse:
         """Post Weight and Water Record
 
         Post paired weight and water records for a water restricted mouse
@@ -2750,7 +2756,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[WaterRestrictionPostWeightAndWaterRecordsDefaultResponse]:
         """Post Weight and Water Record
 
         Post paired weight and water records for a water restricted mouse
@@ -2936,7 +2942,7 @@ class DefaultApi:
         ]
 
         return self.api_client.param_serialize(
-            method='DELETE',
+            method='POST',
             resource_path='/powerautomate/automations/direct/workflows/00ebb4b476e84e999d10d1034cf13492/triggers/manual/paths/invoke',
             path_params=_path_params,
             query_params=_query_params,
