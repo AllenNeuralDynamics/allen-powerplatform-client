@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **water_total** | **float** | water_total | [optional] 
 **water_supplemental_provided** | **float** | water_supplemental_provided | [optional] 
 **water_supplemental_recommended** | **float** | water_supplemental_recommended | [optional] 
-**water_task** | **int** | water_task | [optional] 
+**water_task** | **float** | water_task | [optional] 
 **weight** | **float** | weight | [optional] 
 **is_baseline_weight** | **bool** | is_baseline_weight | [optional] 
 **notes** | **str** | notes | [optional] 

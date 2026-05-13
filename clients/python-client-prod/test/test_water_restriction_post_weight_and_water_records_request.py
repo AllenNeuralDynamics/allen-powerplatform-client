@@ -44,7 +44,7 @@ class TestWaterRestrictionPostWeightAndWaterRecordsRequest(unittest.TestCase):
                 water_total = 1.337,
                 water_supplemental_provided = 1.337,
                 water_supplemental_recommended = 1.337,
-                water_task = 56,
+                water_task = 1.337,
                 weight = 1.337,
                 is_baseline_weight = True,
                 notes = '',

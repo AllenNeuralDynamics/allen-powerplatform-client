@@ -20,9 +20,14 @@ from pydantic import StrictInt
 from typing import Any, Dict, Optional
 from allen_powerplatform_client.models.get_table_data_request import GetTableDataRequest
 from allen_powerplatform_client.models.post_mouse_weight_record_request import PostMouseWeightRecordRequest
-from allen_powerplatform_client.models.validate_email_in_system_users_request import ValidateEmailInSystemUsersRequest
+from allen_powerplatform_client.models.validate_email_in_users_return_data_default_response import ValidateEmailInUsersReturnDataDefaultResponse
+from allen_powerplatform_client.models.validate_email_in_users_return_data_request import ValidateEmailInUsersReturnDataRequest
+from allen_powerplatform_client.models.validate_mouse_guidin_mouse_registry_default_response import ValidateMouseGUIDInMouseRegistryDefaultResponse
 from allen_powerplatform_client.models.validate_mouse_guidin_mouse_registry_request import ValidateMouseGUIDInMouseRegistryRequest
+from allen_powerplatform_client.models.validate_mouse_idin_mouse_registry_default_response import ValidateMouseIDInMouseRegistryDefaultResponse
 from allen_powerplatform_client.models.validate_mouse_idin_mouse_registry_request import ValidateMouseIDInMouseRegistryRequest
+from allen_powerplatform_client.models.validate_mouse_in_behavior_training_default_response import ValidateMouseInBehaviorTrainingDefaultResponse
+from allen_powerplatform_client.models.validate_mouse_in_water_restricted_mice_table_default_response import ValidateMouseInWaterRestrictedMiceTableDefaultResponse
 from allen_powerplatform_client.models.validate_mouse_in_water_restricted_mice_table_request import ValidateMouseInWaterRestrictedMiceTableRequest
 from allen_powerplatform_client.models.water_restriction_post_baseline_weight_request import WaterRestrictionPostBaselineWeightRequest
 from allen_powerplatform_client.models.water_restriction_post_weight_and_water_records_request import WaterRestrictionPostWeightAndWaterRecordsRequest
@@ -924,10 +929,10 @@ class DefaultApi:
 
 
     @validate_call
-    def validate_email_in_system_users(
+    def validate_email_in_users_return_data(
         self,
         api_version: Optional[StrictInt] = None,
-        body: Optional[ValidateEmailInSystemUsersRequest] = None,
+        body: Optional[ValidateEmailInUsersReturnDataRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -940,15 +945,15 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
-        """Validate Email in Users Table
+    ) -> ValidateEmailInUsersReturnDataDefaultResponse:
+        """Validate email address in Users table, return data
 
-        Validate that email is in users (system users) table, return data
+        Validate email address in Users table, return data
 
         :param api_version:
         :type api_version: int
         :param body:
-        :type body: ValidateEmailInSystemUsersRequest
+        :type body: ValidateEmailInUsersReturnDataRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -971,7 +976,7 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._validate_email_in_system_users_serialize(
+        _param = self._validate_email_in_users_return_data_serialize(
             api_version=api_version,
             body=body,
             _request_auth=_request_auth,
@@ -994,10 +999,10 @@ class DefaultApi:
 
 
     @validate_call
-    def validate_email_in_system_users_with_http_info(
+    def validate_email_in_users_return_data_with_http_info(
         self,
         api_version: Optional[StrictInt] = None,
-        body: Optional[ValidateEmailInSystemUsersRequest] = None,
+        body: Optional[ValidateEmailInUsersReturnDataRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1010,15 +1015,15 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
-        """Validate Email in Users Table
+    ) -> ApiResponse[ValidateEmailInUsersReturnDataDefaultResponse]:
+        """Validate email address in Users table, return data
 
-        Validate that email is in users (system users) table, return data
+        Validate email address in Users table, return data
 
         :param api_version:
         :type api_version: int
         :param body:
-        :type body: ValidateEmailInSystemUsersRequest
+        :type body: ValidateEmailInUsersReturnDataRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1041,7 +1046,7 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._validate_email_in_system_users_serialize(
+        _param = self._validate_email_in_users_return_data_serialize(
             api_version=api_version,
             body=body,
             _request_auth=_request_auth,
@@ -1064,10 +1069,10 @@ class DefaultApi:
 
 
     @validate_call
-    def validate_email_in_system_users_without_preload_content(
+    def validate_email_in_users_return_data_without_preload_content(
         self,
         api_version: Optional[StrictInt] = None,
-        body: Optional[ValidateEmailInSystemUsersRequest] = None,
+        body: Optional[ValidateEmailInUsersReturnDataRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1081,14 +1086,14 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Validate Email in Users Table
+        """Validate email address in Users table, return data
 
-        Validate that email is in users (system users) table, return data
+        Validate email address in Users table, return data
 
         :param api_version:
         :type api_version: int
         :param body:
-        :type body: ValidateEmailInSystemUsersRequest
+        :type body: ValidateEmailInUsersReturnDataRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1111,7 +1116,7 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._validate_email_in_system_users_serialize(
+        _param = self._validate_email_in_users_return_data_serialize(
             api_version=api_version,
             body=body,
             _request_auth=_request_auth,
@@ -1129,7 +1134,7 @@ class DefaultApi:
         return response_data.response
 
 
-    def _validate_email_in_system_users_serialize(
+    def _validate_email_in_users_return_data_serialize(
         self,
         api_version,
         body,
@@ -1230,7 +1235,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> ValidateMouseGUIDInMouseRegistryDefaultResponse:
         """Validate Mouse GUID in Mouse Registry
 
         Validate mouse GUID in mouse registry table, return data
@@ -1300,7 +1305,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[ValidateMouseGUIDInMouseRegistryDefaultResponse]:
         """Validate Mouse GUID in Mouse Registry
 
         Validate mouse GUID in mouse registry table, return data
@@ -1520,7 +1525,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> ValidateMouseIDInMouseRegistryDefaultResponse:
         """Validate Mouse ID in Mouse Registry
 
         Validate mouse ID (6 digit labtracks id) is in the mouse registry, return data
@@ -1590,7 +1595,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[ValidateMouseIDInMouseRegistryDefaultResponse]:
         """Validate Mouse ID in Mouse Registry
 
         Validate mouse ID (6 digit labtracks id) is in the mouse registry, return data
@@ -1810,7 +1815,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> ValidateMouseInBehaviorTrainingDefaultResponse:
         """Validate mouse in behavior training table
 
         Validate mouse in behavior training team table, return data
@@ -1880,7 +1885,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[ValidateMouseInBehaviorTrainingDefaultResponse]:
         """Validate mouse in behavior training table
 
         Validate mouse in behavior training team table, return data
@@ -2100,7 +2105,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> ValidateMouseInWaterRestrictedMiceTableDefaultResponse:
         """Validate Mouse in Water Restricted Mice table
 
         validate that a mouse has an active entry in the water restricted mice table, return data
@@ -2170,7 +2175,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[ValidateMouseInWaterRestrictedMiceTableDefaultResponse]:
         """Validate Mouse in Water Restricted Mice table
 
         validate that a mouse has an active entry in the water restricted mice table, return data

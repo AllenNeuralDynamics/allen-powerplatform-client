@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**get_table_data**](DefaultApi.md#get_table_data) | **POST** /powerautomate/automations/direct/workflows/f6c21f9b55034601ada7ade802482d08/triggers/manual/paths/invoke | Get Table Data
 [**get_table_names**](DefaultApi.md#get_table_names) | **POST** /powerautomate/automations/direct/workflows/2be3b0f7123e46b7b56e25dbf1c3c302/triggers/manual/paths/invoke | Get Table Names
 [**post_mouse_weight_record**](DefaultApi.md#post_mouse_weight_record) | **POST** /powerautomate/automations/direct/workflows/77670382d812439f97bd4ea53e754d0e/triggers/manual/paths/invoke | Post Weight Record
-[**validate_email_in_system_users**](DefaultApi.md#validate_email_in_system_users) | **POST** /powerautomate/automations/direct/workflows/58a2ce88e82045a7881f5b47b997f565/triggers/manual/paths/invoke | Validate Email in Users Table
+[**validate_email_in_users_return_data**](DefaultApi.md#validate_email_in_users_return_data) | **POST** /powerautomate/automations/direct/workflows/58a2ce88e82045a7881f5b47b997f565/triggers/manual/paths/invoke | Validate email address in Users table, return data
 [**validate_mouse_guidin_mouse_registry**](DefaultApi.md#validate_mouse_guidin_mouse_registry) | **POST** /powerautomate/automations/direct/workflows/a52a8daa2f8449f98fefa5d1ca96a6ae/triggers/manual/paths/invoke | Validate Mouse GUID in Mouse Registry
 [**validate_mouse_idin_mouse_registry**](DefaultApi.md#validate_mouse_idin_mouse_registry) | **POST** /powerautomate/automations/direct/workflows/96827dbff24a477cb56676b7c3438bcb/triggers/manual/paths/invoke | Validate Mouse ID in Mouse Registry
 [**validate_mouse_in_behavior_training**](DefaultApi.md#validate_mouse_in_behavior_training) | **POST** /powerautomate/automations/direct/workflows/84b056ad37584b3e84992ded7e0b82f3/triggers/manual/paths/invoke | Validate mouse in behavior training table
@@ -266,12 +266,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **validate_email_in_system_users**
-> object validate_email_in_system_users(api_version=api_version, body=body)
+# **validate_email_in_users_return_data**
+> ValidateEmailInUsersReturnDataDefaultResponse validate_email_in_users_return_data(api_version=api_version, body=body)
 
-Validate Email in Users Table
+Validate email address in Users table, return data
 
-Validate that email is in users (system users) table, return data
+Validate email address in Users table, return data
 
 ### Example
 
@@ -281,7 +281,8 @@ Validate that email is in users (system users) table, return data
 
 ```python
 import allen_powerplatform_client
-from allen_powerplatform_client.models.validate_email_in_system_users_request import ValidateEmailInSystemUsersRequest
+from allen_powerplatform_client.models.validate_email_in_users_return_data_default_response import ValidateEmailInUsersReturnDataDefaultResponse
+from allen_powerplatform_client.models.validate_email_in_users_return_data_request import ValidateEmailInUsersReturnDataRequest
 from allen_powerplatform_client.rest import ApiException
 from pprint import pprint
 
@@ -307,15 +308,15 @@ with allen_powerplatform_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = allen_powerplatform_client.DefaultApi(api_client)
     api_version = 56 # int |  (optional)
-    body = allen_powerplatform_client.ValidateEmailInSystemUsersRequest() # ValidateEmailInSystemUsersRequest |  (optional)
+    body = allen_powerplatform_client.ValidateEmailInUsersReturnDataRequest() # ValidateEmailInUsersReturnDataRequest |  (optional)
 
     try:
-        # Validate Email in Users Table
-        api_response = api_instance.validate_email_in_system_users(api_version=api_version, body=body)
-        print("The response of DefaultApi->validate_email_in_system_users:\n")
+        # Validate email address in Users table, return data
+        api_response = api_instance.validate_email_in_users_return_data(api_version=api_version, body=body)
+        print("The response of DefaultApi->validate_email_in_users_return_data:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling DefaultApi->validate_email_in_system_users: %s\n" % e)
+        print("Exception when calling DefaultApi->validate_email_in_users_return_data: %s\n" % e)
 ```
 
 
@@ -326,11 +327,11 @@ with allen_powerplatform_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **api_version** | **int**|  | [optional] 
- **body** | [**ValidateEmailInSystemUsersRequest**](ValidateEmailInSystemUsersRequest.md)|  | [optional] 
+ **body** | [**ValidateEmailInUsersReturnDataRequest**](ValidateEmailInUsersReturnDataRequest.md)|  | [optional] 
 
 ### Return type
 
-**object**
+[**ValidateEmailInUsersReturnDataDefaultResponse**](ValidateEmailInUsersReturnDataDefaultResponse.md)
 
 ### Authorization
 
@@ -350,7 +351,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **validate_mouse_guidin_mouse_registry**
-> object validate_mouse_guidin_mouse_registry(api_version=api_version, body=body)
+> ValidateMouseGUIDInMouseRegistryDefaultResponse validate_mouse_guidin_mouse_registry(api_version=api_version, body=body)
 
 Validate Mouse GUID in Mouse Registry
 
@@ -364,6 +365,7 @@ Validate mouse GUID in mouse registry table, return data
 
 ```python
 import allen_powerplatform_client
+from allen_powerplatform_client.models.validate_mouse_guidin_mouse_registry_default_response import ValidateMouseGUIDInMouseRegistryDefaultResponse
 from allen_powerplatform_client.models.validate_mouse_guidin_mouse_registry_request import ValidateMouseGUIDInMouseRegistryRequest
 from allen_powerplatform_client.rest import ApiException
 from pprint import pprint
@@ -413,7 +415,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**ValidateMouseGUIDInMouseRegistryDefaultResponse**](ValidateMouseGUIDInMouseRegistryDefaultResponse.md)
 
 ### Authorization
 
@@ -433,7 +435,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **validate_mouse_idin_mouse_registry**
-> object validate_mouse_idin_mouse_registry(api_version=api_version, body=body)
+> ValidateMouseIDInMouseRegistryDefaultResponse validate_mouse_idin_mouse_registry(api_version=api_version, body=body)
 
 Validate Mouse ID in Mouse Registry
 
@@ -447,6 +449,7 @@ Validate mouse ID (6 digit labtracks id) is in the mouse registry, return data
 
 ```python
 import allen_powerplatform_client
+from allen_powerplatform_client.models.validate_mouse_idin_mouse_registry_default_response import ValidateMouseIDInMouseRegistryDefaultResponse
 from allen_powerplatform_client.models.validate_mouse_idin_mouse_registry_request import ValidateMouseIDInMouseRegistryRequest
 from allen_powerplatform_client.rest import ApiException
 from pprint import pprint
@@ -496,7 +499,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**ValidateMouseIDInMouseRegistryDefaultResponse**](ValidateMouseIDInMouseRegistryDefaultResponse.md)
 
 ### Authorization
 
@@ -516,7 +519,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **validate_mouse_in_behavior_training**
-> object validate_mouse_in_behavior_training(api_version=api_version, body=body)
+> ValidateMouseInBehaviorTrainingDefaultResponse validate_mouse_in_behavior_training(api_version=api_version, body=body)
 
 Validate mouse in behavior training table
 
@@ -530,6 +533,7 @@ Validate mouse in behavior training team table, return data
 
 ```python
 import allen_powerplatform_client
+from allen_powerplatform_client.models.validate_mouse_in_behavior_training_default_response import ValidateMouseInBehaviorTrainingDefaultResponse
 from allen_powerplatform_client.models.validate_mouse_in_water_restricted_mice_table_request import ValidateMouseInWaterRestrictedMiceTableRequest
 from allen_powerplatform_client.rest import ApiException
 from pprint import pprint
@@ -579,7 +583,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**ValidateMouseInBehaviorTrainingDefaultResponse**](ValidateMouseInBehaviorTrainingDefaultResponse.md)
 
 ### Authorization
 
@@ -599,7 +603,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **validate_mouse_in_water_restricted_mice_table**
-> object validate_mouse_in_water_restricted_mice_table(api_version=api_version, body=body)
+> ValidateMouseInWaterRestrictedMiceTableDefaultResponse validate_mouse_in_water_restricted_mice_table(api_version=api_version, body=body)
 
 Validate Mouse in Water Restricted Mice table
 
@@ -613,6 +617,7 @@ validate that a mouse has an active entry in the water restricted mice table, re
 
 ```python
 import allen_powerplatform_client
+from allen_powerplatform_client.models.validate_mouse_in_water_restricted_mice_table_default_response import ValidateMouseInWaterRestrictedMiceTableDefaultResponse
 from allen_powerplatform_client.models.validate_mouse_in_water_restricted_mice_table_request import ValidateMouseInWaterRestrictedMiceTableRequest
 from allen_powerplatform_client.rest import ApiException
 from pprint import pprint
@@ -662,7 +667,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**ValidateMouseInWaterRestrictedMiceTableDefaultResponse**](ValidateMouseInWaterRestrictedMiceTableDefaultResponse.md)
 
 ### Authorization
 
@@ -721,7 +726,7 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 with allen_powerplatform_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = allen_powerplatform_client.DefaultApi(api_client)
-    api_version = 56 # int |  (optional)
+    api_version = 1 # int |  (optional) (default to 1)
     body = allen_powerplatform_client.WaterRestrictionPostBaselineWeightRequest() # WaterRestrictionPostBaselineWeightRequest |  (optional)
 
     try:
@@ -740,7 +745,7 @@ with allen_powerplatform_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_version** | **int**|  | [optional] 
+ **api_version** | **int**|  | [optional] [default to 1]
  **body** | [**WaterRestrictionPostBaselineWeightRequest**](WaterRestrictionPostBaselineWeightRequest.md)|  | [optional] 
 
 ### Return type

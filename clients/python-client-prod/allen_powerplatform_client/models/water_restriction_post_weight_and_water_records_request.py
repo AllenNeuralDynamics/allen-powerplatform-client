@@ -35,7 +35,7 @@ class WaterRestrictionPostWeightAndWaterRecordsRequest(BaseModel):
     water_total: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="water_total")
     water_supplemental_provided: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="water_supplemental_provided")
     water_supplemental_recommended: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="water_supplemental_recommended")
-    water_task: Optional[StrictInt] = Field(default=None, description="water_task")
+    water_task: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="water_task")
     weight: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="weight")
     is_baseline_weight: Optional[StrictBool] = Field(default=None, description="is_baseline_weight")
     notes: Optional[StrictStr] = Field(default=None, description="notes")

@@ -14,10 +14,10 @@
 
 import unittest
 
-from allen_powerplatform_client.models.validate_email_in_system_users_request import ValidateEmailInSystemUsersRequest
+from allen_powerplatform_client.models.validate_email_in_users_return_data_request import ValidateEmailInUsersReturnDataRequest
 
-class TestValidateEmailInSystemUsersRequest(unittest.TestCase):
-    """ValidateEmailInSystemUsersRequest unit test stubs"""
+class TestValidateEmailInUsersReturnDataRequest(unittest.TestCase):
+    """ValidateEmailInUsersReturnDataRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,25 +25,25 @@ class TestValidateEmailInSystemUsersRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> ValidateEmailInSystemUsersRequest:
-        """Test ValidateEmailInSystemUsersRequest
+    def make_instance(self, include_optional) -> ValidateEmailInUsersReturnDataRequest:
+        """Test ValidateEmailInUsersReturnDataRequest
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `ValidateEmailInSystemUsersRequest`
+        # uncomment below to create an instance of `ValidateEmailInUsersReturnDataRequest`
         """
-        model = ValidateEmailInSystemUsersRequest()
+        model = ValidateEmailInUsersReturnDataRequest()
         if include_optional:
-            return ValidateEmailInSystemUsersRequest(
+            return ValidateEmailInUsersReturnDataRequest(
                 email_address = ''
             )
         else:
-            return ValidateEmailInSystemUsersRequest(
+            return ValidateEmailInUsersReturnDataRequest(
         )
         """
 
-    def testValidateEmailInSystemUsersRequest(self):
-        """Test ValidateEmailInSystemUsersRequest"""
+    def testValidateEmailInUsersReturnDataRequest(self):
+        """Test ValidateEmailInUsersReturnDataRequest"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

@@ -47,10 +47,10 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_validate_email_in_system_users(self) -> None:
-        """Test case for validate_email_in_system_users
+    def test_validate_email_in_users_return_data(self) -> None:
+        """Test case for validate_email_in_users_return_data
 
-        Validate Email in Users Table
+        Validate email address in Users table, return data
         """
         pass
 
